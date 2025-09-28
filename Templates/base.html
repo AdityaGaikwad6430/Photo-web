@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ photographer.name if photographer else 'Jessie' }} | Photographer</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <title>Yash | Photographer</title>
+  <link rel="stylesheet" href="/Photo-web/static/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo">Jessie.</div>
+      <div class="logo">Yash.</div>
       <nav class="main-nav">
         <a href="#">Portfolio</a>
         <a href="#">Blog</a>
@@ -25,7 +25,10 @@
       {% if messages %}
         <div class="flash-wrap">
           {% for category, message in messages %}
-            <div class="flash {{ category }}">{{ message }}</div>
+            <div class="flash {{ category }}">  Hello there, nice to meet you. I am Yash, a professional photographer passionate about capturing stories through my lens.
+       <p>From portraits to landscapes, I focus on creating images that feel alive and timeless. My style blends creativity with authenticity, ensuring every shot reflects the true essence of the moment. Whether it’s natural light outdoors or carefully designed studio setups, I strive to make every frame unique and meaningful.</p>
+       <p>Photography for me is not just about pictures—it’s about preserving emotions, memories, and experiences you’ll want to revisit forever.</p>
+        </div>
           {% endfor %}
         </div>
       {% endif %}
@@ -35,7 +38,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; {{ (photographer.name if photographer else 'Jessie') }} • {{ now().year if now is defined else '' }}</p>
+      <p>&copy; Yash Gaikwad Photography • {{ now().year if now is defined else '' }}</p>
     </div>
   </footer>
 </body>
