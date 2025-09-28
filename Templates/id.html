@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero container">
+  <div class="hero-left">
+    <!-- Use your real photo path/URL in Shot.filename or static path -->
+    {% if shots and shots|length > 0 %}
+      <img src="{{ url_for('static', filename=shots[0].filename) }}" alt="Profile" class="profile-photo">
+    {% else %}
+      <img src="{{ url_for('static', filename='placeholder-profile.jpg') }}" alt="Profile" class="profile-photo">
+    {% endif %}
+    <div class="tag">Pro<br/>photographer</div>
+  </div>
+
+  <div class="hero-right">
+    <p class="greet">Hello there, Nice to meet you. I am</p>
+    <h1 class="name">{{ photographer.name if photographer else 'Jessie' }}</h1>
+    <p class="bio">
+      {{ photographer.bio if photographer and photographer.bio else
+        "I capture honest, timeless images—portraits and scenes that tell real stories. Available for studio and location shoots." }}
+    </p>
+
+    <form id="schedule-form" class="schedule-form" method="post" action="/schedule">
+      <h3>Schedule a shoot</h3>
+      <input name="client_name" placeholder="Your name" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="preferred_date" placeholder="Preferred date (optional)">
+      <textarea name="notes" placeholder="Notes (optional)"></textarea>
+      <button type="submit" class="btn">Request</button>
+    </form>
+  </div>
+</section>
+
+<section class="gallery container">
+  <h2>Latest shots</h2>
+  <div class="shots-grid">
+    {% for shot in shots %}
+      <div class="shot-card">
+        <img src="{{ url_for('static', filename=shot.filename) }}" alt="{{ shot.title }}">
+        <div class="shot-caption">{{ shot.caption or shot.title or '' }}</div>
+      </div>
+    {% else %}
+      <p>No shots yet — add images to /static and insert records into DB.</p>
+    {% endfor %}
+  </div>
+
+  <div class="contact container">
+    <h3>Contact</h3>
+    <form method="post" action="/contact">
+      <input name="name" placeholder="Name" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
