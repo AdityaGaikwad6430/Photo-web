@@ -1,13 +1,10 @@
+```jinja
 {% extends "base.html" %}
 {% block content %}
 <section class="hero container">
   <div class="hero-left">
-    <!-- Use your real photo path/URL in Shot.filename or static path -->
-    {% if shots and shots|length > 0 %}
-      <img src="../static/Images/Image1.jpg" alt="Profile" width="100px"  class="profile-photo">
-    {% else %}
-      <img src="../static/Images/Image2.jpg" alt="Profile" class="profile-photo">
-    {% endif %}
+    <!-- Static profile photo -->
+    <img src="{{ url_for('static', filename='Images/Image1.jpg') }}" alt="Profile" class="profile-photo">
     <div class="tag">Pro<br/>Photographer</div>
   </div>
 
@@ -15,7 +12,7 @@
     <p class="greet">Hello there, Nice to meet you. I am</p>
     <h1 class="name">Yash</h1>
     <p class="bio">
-        "I capture honest, timeless images—portraits and scenes that tell real stories. Available for studio and location shoots.
+      I capture honest, timeless images—portraits and scenes that tell real stories. Available for studio and location shoots.
     </p>
 
     <form id="schedule-form" class="schedule-form" method="post" action="/schedule">
@@ -34,8 +31,8 @@
   <div class="shots-grid">
     {% for shot in shots %}
       <div class="shot-card">
-        <img src="/Photo-web/static/Images/Image1.jpg" alt="alternate">
-        <div class="shot-caption">Studio shoot</div>
+        <img src="{{ url_for('static', filename='Images/' + shot.filename) }}" alt="{{ shot.title }}">
+        <div class="shot-caption">{{ shot.caption or 'Studio shoot' }}</div>
       </div>
     {% else %}
       <p>No shots yet — add images to /static and insert records into DB.</p>
@@ -53,3 +50,4 @@
   </div>
 </section>
 {% endblock %}
+```

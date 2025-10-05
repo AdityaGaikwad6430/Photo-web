@@ -107,6 +107,9 @@ def init_db():
     """Create database tables (call: flask init-db)"""
     db.create_all()
     print("Database tables created.")
+# Auto-create tables on startup
+with app.app_context():
+    db.create_all()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)
