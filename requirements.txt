@@ -1,4 +1,5 @@
 Flask>=2.2
 Flask-SQLAlchemy>=3.0
 python-dotenv>=1.0
-pymysql>=1.0    # MySQL driver for SQLAlchemy
+pymysql>=1.0
+# MySQL driver for SQLAlchemy

@@ -1,20 +1,21 @@
+```jinja
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Yash | Photographer</title>
-  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo">Yash.</div>
       <nav class="main-nav">
-        <a href="https://www.instagram.com/yashgaikwad_photography/">Portfolio</a>
-        <a href="">Blog</a>
-        <a href="">Client reviews</a>
-        <a href="https://wa.me/917083700900">Contact me</a>
+        <a href="https://www.instagram.com/yashgaikwad_photography/" target="_blank">Portfolio</a>
+        <a href="#">Blog</a>
+        <a href="#">Client reviews</a>
+        <a href="https://wa.me/917083700900" target="_blank">Contact me</a>
       </nav>
       <a class="btn schedule" href="tel:+917083700900">Schedule a call</a>
     </div>
@@ -25,21 +26,20 @@
       {% if messages %}
         <div class="flash-wrap">
           {% for category, message in messages %}
-            <div class="flash {{ category }}">  Hello there, nice to meet you. I am Yash, a professional photographer passionate about capturing stories through my lens.
-       <p>From portraits to landscapes, I focus on creating images that feel alive and timeless. My style blends creativity with authenticity, ensuring every shot reflects the true essence of the moment. Whether it’s natural light outdoors or carefully designed studio setups, I strive to make every frame unique and meaningful.</p>
-       <p>Photography for me is not just about pictures—it’s about preserving emotions, memories, and experiences you’ll want to revisit forever.</p>
-        </div>
+            <div class="flash {{ category }}">{{ message }}</div>
           {% endfor %}
         </div>
       {% endif %}
     {% endwith %}
+
     {% block content %}{% endblock %}
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; Yash Gaikwad Photography</p>
+      <p>&copy; {{ datetime.utcnow().year }} Yash Gaikwad Photography</p>
     </div>
   </footer>
 </body>
 </html>
+```
