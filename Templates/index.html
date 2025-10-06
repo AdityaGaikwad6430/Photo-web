@@ -27,16 +27,28 @@
 <section class="gallery container">
   <h2>Latest shots</h2>
   <div class="shots-grid">
-    {% for shot in shots %}
-      <div class="shot-card">
-        <div class="shot-caption">{{ shot.caption or 'Studio shoot' }}</div>
-        <img src="{{ url_for('static', filename='Images/Image1.jpg') }}" alt="{{ shot.title or 'Shot' }}">
-        <img src="{{ url_for('static', filename='Images/Image3.jpg') }}" alt="{{ shot.title or 'Shot' }}">
-        <img src="{{ url_for('static', filename='Images/Image2.jpg') }}" alt="{{ shot.title or 'Shot' }}">
-      </div>
+    {% if shots and shots|length > 0 %}
+      {% for shot in shots %}
+        <div class="shot-card">
+          <img src="{{ url_for('static', filename='Images/' ~ shot.filename) }}" alt="{{ shot.title or 'Shot' }}">
+          <div class="shot-caption">{{ shot.caption or 'Studio shoot' }}</div>
+        </div>
+      {% endfor %}
     {% else %}
-      <p>No shots yet — add images to /static/Images and insert records into DB.</p>
-    {% endfor %}
+      <!-- Fallback static images if no DB shots exist -->
+      <div class="shot-card">
+        <img src="{{ url_for('static', filename='Images/Image1.jpg') }}" alt="Fallback Shot 1">
+        <div class="shot-caption">Studio Shoot</div>
+      </div>
+      <div class="shot-card">
+        <img src="{{ url_for('static', filename='Images/Image2.jpg') }}" alt="Fallback Shot 2">
+        <div class="shot-caption">Outdoor Portrait</div>
+      </div>
+      <div class="shot-card">
+        <img src="{{ url_for('static', filename='Images/Image3.jpg') }}" alt="Fallback Shot 3">
+        <div class="shot-caption">Landscape</div>
+      </div>
+    {% endif %}
   </div>
 
   <div class="contact container">
@@ -49,4 +61,5 @@
     </form>
   </div>
 </section>
+
 {% endblock %}
