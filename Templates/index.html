@@ -2,7 +2,7 @@
 {% block content %}
 <section class="hero container">
   <div class="hero-left">
-    <img src="{{ url_for('static', filename='Images/Image1.jpg') }}" alt="Profile" class="profile-photo">
+    <img src="{{ url_for('static', filename='Images/images2.jpg') }}" alt="Profile" class="profile-photo">
     <div class="tag">Pro<br/>Photographer</div>
   </div>
 
@@ -29,8 +29,10 @@
   <div class="shots-grid">
     {% for shot in shots %}
       <div class="shot-card">
-        <img src="{{ url_for('static', filename='Images/' + shot.filename) }}" alt="{{ shot.title or 'Shot' }}">
         <div class="shot-caption">{{ shot.caption or 'Studio shoot' }}</div>
+        <img src="{{ url_for('static', filename='Images/Image1.jpg') }}" alt="{{ shot.title or 'Shot' }}">
+        <img src="{{ url_for('static', filename='Images/Image3.jpg') }}" alt="{{ shot.title or 'Shot' }}">
+        <img src="{{ url_for('static', filename='Images/Image2.jpg') }}" alt="{{ shot.title or 'Shot' }}">
       </div>
     {% else %}
       <p>No shots yet — add images to /static/Images and insert records into DB.</p>
