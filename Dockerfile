@@ -12,6 +12,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install dependencies
+RUN pip install --no-cache-dir flask flask_sqlalchemy pymysql cryptography
 RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
