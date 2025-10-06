@@ -1,9 +1,7 @@
-```jinja
 {% extends "base.html" %}
 {% block content %}
 <section class="hero container">
   <div class="hero-left">
-    <!-- Static profile photo -->
     <img src="{{ url_for('static', filename='Images/Image1.jpg') }}" alt="Profile" class="profile-photo">
     <div class="tag">Pro<br/>Photographer</div>
   </div>
@@ -31,11 +29,11 @@
   <div class="shots-grid">
     {% for shot in shots %}
       <div class="shot-card">
-        <img src="{{ url_for('static', filename='Images/' + shot.filename) }}" alt="{{ shot.title }}">
+        <img src="{{ url_for('static', filename='Images/' + shot.filename) }}" alt="{{ shot.title or 'Shot' }}">
         <div class="shot-caption">{{ shot.caption or 'Studio shoot' }}</div>
       </div>
     {% else %}
-      <p>No shots yet — add images to /static and insert records into DB.</p>
+      <p>No shots yet — add images to /static/Images and insert records into DB.</p>
     {% endfor %}
   </div>
 
@@ -50,4 +48,3 @@
   </div>
 </section>
 {% endblock %}
-```
