@@ -8,6 +8,8 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import pymysql
 
+
+
 # Load .env
 load_dotenv()
 
@@ -25,7 +27,8 @@ SQLALCHEMY_DATABASE_URI = (
 )
 
 # App factory-ish single-module app
-app = Flask(__name__, static_folder="static", template_folder="templates")
+app = Flask(__name__, static_folder="static", template_folder="Templates")
+app.jinja_env.globals['datetime'] = datetime
 app.secret_key = FLASK_SECRET
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -93,7 +96,7 @@ def wait_for_mysql(host: str, port: int = 3306, user: str = "root", password: st
 def index():
     photographer = Photographer.query.order_by(Photographer.id).first()
     shots = Shot.query.order_by(Shot.created_at.desc()).limit(6).all()
-    return render_template("index.html", photographer=photographer, shots=shots)
+    return render_template("index.html", photographer=photographer, shots=shots, datetime=datetime)
 
 
 @app.route("/contact", methods=["POST"])
