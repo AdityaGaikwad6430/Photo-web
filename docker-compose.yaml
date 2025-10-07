@@ -20,7 +20,7 @@ services:
       timeout: 5s
 
   web:
-    build: .
+    image: adityagaikwad6430/photo-app:latest
     container_name: flask_app
     depends_on:
       db:
