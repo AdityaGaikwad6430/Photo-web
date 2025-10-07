@@ -1,6 +1,7 @@
 
 import os
 import time
+import smtplib
 from datetime import datetime
 
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
@@ -35,6 +36,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["DEBUG"] = DEBUG
 
 db = SQLAlchemy(app)
+
 
 
 # ---------- Models ----------
@@ -140,6 +142,28 @@ def api_shots():
     shots = Shot.query.order_by(Shot.created_at.desc()).all()
     data = [{"id": s.id, "title": s.title, "filename": s.filename, "caption": s.caption} for s in shots]
     return jsonify(data)
+
+@app.route('/schedule', methods=['POST'])
+def schedule():
+    client_name = request.form.get('client_name')
+    email = request.form.get('email')
+    preferred_date = request.form.get('preferred_date')
+    notes = request.form.get('notes')
+
+    message = f"""Subject: New Shoot Request
+
+    Client: {client_name}
+    Email: {email}
+    Preferred Date: {preferred_date}
+    Notes: {notes}
+    """
+
+    with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+        smtp.starttls()
+        smtp.login('adityagaikwad6430@gmail.com', 'ygql wvot xnux qjuz')
+        smtp.sendmail('adityagaikwad6430@gmail.com', 'yg700900@gmail.com', message)
+
+    return "Request sent via Email!"
 
 
 # ---------- DB init on startup (automated but safe) ----------
