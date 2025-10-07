@@ -2,28 +2,6 @@
 
 pipeline {
     agent any
-
-    parameters {
-        string(name: 'DOCKER_TAG', defaultValue: '', description: 'Setting docker image for latest push')
-    }
-
-    stages {
-        stage("Validate Parameters") {
-            steps {
-                script {
-                    if (params.DOCKER_TAG == '') {
-                        error("DOCKER_TAG is required.")
-                    }
-                }
-            }
-        }
-
-        stage("Workspace cleanup") {
-            steps {
-                cleanWs()
-            }
-        }
-
         stage("Code") {
             steps {
                 script {
@@ -57,3 +35,4 @@ pipeline {
         }
     }
 }
+
