@@ -13,7 +13,7 @@ pipeline {
         stage("Build") {
             steps {
                 script {
-                    docker_build("photo-app", "${params.DOCKER_TAG}", "dockerHubCreds")
+                    docker_build("photo-app", "latest", "dockerHubCreds")
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         stage("DockerPush") {
             steps {
                 script {
-                    dpush("photo-app", "${params.DOCKER_TAG}", "dockerHubCreds")
+                    dpush("photo-app", "latest", "dockerHubCreds")
                 }
             }
         }
@@ -35,4 +35,5 @@ pipeline {
         }
     }
 }
+
 
