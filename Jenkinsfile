@@ -35,7 +35,15 @@ pipeline {
                 }
             }
         }
+        stage("Clean workshop") {
+            steps {
+                script {
+                    cleanWs()
+                }
+            }
+        }
     }
 }
+
 
 
