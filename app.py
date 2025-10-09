@@ -143,7 +143,7 @@ def api_shots():
     data = [{"id": s.id, "title": s.title, "filename": s.filename, "caption": s.caption} for s in shots]
     return jsonify(data)
 
-@app.route('/schedule', methods=['POST'])
+@app.route('/schedule', methods=['POST'], endpoint='schedule_email')
 def schedule():
     client_name = request.form.get('client_name')
     email = request.form.get('email')
@@ -192,4 +192,5 @@ except Exception as e:
 if __name__ == "__main__":
     # Local dev fallback; in production you'll use Gunicorn (configured in Dockerfile)
     app.run(debug=DEBUG, host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+
 
