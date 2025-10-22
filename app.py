@@ -161,7 +161,7 @@ def schedule():
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
         smtp.starttls()
         smtp.login('adityagaikwad6430@gmail.com', 'ygql wvot xnux qjuz')
-        smtp.sendmail('adityagaikwad6430@gmail.com', 'yg700900@gmail.com', message)
+        smtp.sendmail('adityagaikwad6430@gmail.com', 'adityagaikwad6430@gmail.com', Hi I want to shoot some photos )
 
     return "Request sent via Email!"
 
@@ -192,5 +192,6 @@ except Exception as e:
 if __name__ == "__main__":
     # Local dev fallback; in production you'll use Gunicorn (configured in Dockerfile)
     app.run(debug=DEBUG, host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+
 
 
