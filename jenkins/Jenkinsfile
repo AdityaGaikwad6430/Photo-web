@@ -33,12 +33,5 @@ pipeline {
                 }
             }
         }
-        stage("") {
-            steps {
-                script {
-                    cleanWs()
-                }
-            }
-        }
     }
 }
