@@ -143,25 +143,30 @@ def api_shots():
     data = [{"id": s.id, "title": s.title, "filename": s.filename, "caption": s.caption} for s in shots]
     return jsonify(data)
 
-@app.route('/schedule', methods=['POST'], endpoint='schedule_email')
-def schedule():
+@app.route('/schedule/email', methods=['POST'])
+def schedule_email():
     client_name = request.form.get('client_name')
     email = request.form.get('email')
     preferred_date = request.form.get('preferred_date')
     notes = request.form.get('notes')
 
-    message = f"""Subject: New Shoot Request
+    message = f"""\
+Subject: New Shoot Request
 
-    Client: {client_name}
-    Email: {email}
-    Preferred Date: {preferred_date}
-    Notes: {notes}
-    """
+Client: {client_name}
+Email: {email}
+Preferred Date: {preferred_date}
+Notes: {notes}
+"""
 
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
         smtp.starttls()
         smtp.login('adityagaikwad6430@gmail.com', 'ygql wvot xnux qjuz')
-        smtp.sendmail('adityagaikwad6430@gmail.com', 'adityagaikwad6430@gmail.com', Hi I want to shoot some photos )
+        smtp.sendmail(
+            'adityagaikwad6430@gmail.com',
+            'adityagaikwad6430@gmail.com',
+            message
+        )
 
     return "Request sent via Email!"
 
@@ -192,6 +197,7 @@ except Exception as e:
 if __name__ == "__main__":
     # Local dev fallback; in production you'll use Gunicorn (configured in Dockerfile)
     app.run(debug=DEBUG, host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
+
 
 
 
