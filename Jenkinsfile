@@ -15,23 +15,14 @@ pipeline {
         stage("Build") {
             steps {
                 script {
-                    docker_build("photo-app", "latest", "dockerHubCreds")
+                    build2("photo-app", "latest")
                 }
             }
         }
-
-        stage("DockerPush") {
-            steps {
-                script {
-                    dpush("photo-app", "latest", "dockerHubCreds")
-                }
-            }
-        }
-
         stage("Deploy") {
             steps {
                 script {
-                    deploy()
+                    deploy2()
                 }
             }
         }
@@ -44,6 +35,5 @@ pipeline {
         }
     }
 }
-
 
 
