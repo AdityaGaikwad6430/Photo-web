@@ -92,7 +92,7 @@ body {
   color: var(--accent);
   letter-spacing: -1px;
 }
-.bio { color: #9e9e9e; line-height: 1.6; max-width: 700px; }
+.bio { color: #1a1313; line-height: 1.6; max-width: 700px; }
 
 /* Schedule form */
 .schedule-form input, .schedule-form textarea {
@@ -149,6 +149,7 @@ body {
   .hero-left, .hero-right { width: 100%; }
   .name { font-size: 48px; }
 }
+
 
 
 
