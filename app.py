@@ -127,28 +127,28 @@ def schedule():
     return redirect(url_for("index"))
 
 
-@app.route("/schedule/email", methods=["POST"])
-def schedule_email():
-    client_name = request.form.get("client_name")
-    email = request.form.get("email")
-    preferred_date = request.form.get("preferred_date")
-    notes = request.form.get("notes")
+#@app.route("/schedule/email", methods=["POST"])
+#def schedule_email():
+ #   client_name = request.form.get("client_name")
+  #  email = request.form.get("email")
+   # preferred_date = request.form.get("preferred_date")
+    #notes = request.form.get("notes")
 
-    message = f"""Subject: New Shoot Request
+    #message = f"""Subject: New Shoot Request
 
-Client: {client_name}
-Email: {email}
-Preferred Date: {preferred_date}
-Notes: {notes}
-"""
+#Client: {client_name}
+#Email: {email}
+#Preferred Date: {preferred_date}
+#Notes: {notes}
+#"""
 
-    with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-        smtp.starttls()
-        smtp.login('adityagaikwad6430@gmail.com', 'ygql wvot xnux qjuz')
-        smtp.sendmail('adityagaikwad6430@gmail.com', 'adityagaikwad6430@gmail.com', message)
+    #with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+    #    smtp.starttls()
+   #     smtp.login('adityagaikwad6430@gmail.com', 'ygql wvot xnux qjuz')
+  #      smtp.sendmail('adityagaikwad6430@gmail.com', 'adityagaikwad6430@gmail.com', message)
 
-    return "Request sent via Email!"
-
+ #   return "Request sent via Email!"
+#
 
 @app.route("/weddings")
 def weddings():
