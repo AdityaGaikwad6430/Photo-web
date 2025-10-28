@@ -31,7 +31,7 @@ body {
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(243, 0, 174, 0.3); /* subtle magenta glow */
+  box-shadow: 0 0 15px rgba(222, 222, 222, 0.3); /* subtle magenta glow */
   transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
