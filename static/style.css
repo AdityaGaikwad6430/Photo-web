@@ -52,7 +52,7 @@ body {
   font-weight: 800;
   font-size: 22px;
   letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(243, 0, 174, 0.494);
+  text-shadow: 0 0 10px rgb(31, 31, 31);
   transition: text-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -86,7 +86,7 @@ body {
 
 .btn.schedule:hover {
   background: #ff44c1cb;
-  box-shadow: 0 0 30px 8px rgba(243, 0, 174, 0.9);
+  box-shadow: 0 0 50px 16px rgba(243, 0, 174, 0.9);
   transform: scale(1.05);
 }
 
@@ -133,9 +133,6 @@ body {
   color: var(--accent);
   letter-spacing: -1px;
   transition: var(--transition);
-}
-.name:hover {
-  text-shadow: 0 0 10px var(--accent);
 }
 .bio { color: #1a1313; line-height: 1.6; max-width: 700px; }
 
