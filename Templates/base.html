@@ -7,49 +7,55 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="logo"></div>
-    <nav class="main-nav">
-      <a href="#">Home</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">PhotoWeb</div>
+      <nav class="main-nav">
+        <a href="{{ url_for('home') }}">HOME</a>
 
-      <div class="dropdown">
-        <a href="#">WEDDINGS ▾</a>
-        <div class="dropdown-content">
-          <a href="#">Outdoor</a>
-          <a href="#">Engagement</a>
-          <a href="#">Haldi</a>
-          <a href="#">Traditional</a>
-          <a href="#">Sangeet</a>
+        <div class="dropdown">
+          <a href="{{ url_for('weddings') }}">WEDDINGS ▾</a>
+          <div class="dropdown-content">
+            <a href="#">Outdoor</a>
+            <a href="#">Engagement</a>
+            <a href="#">Haldi</a>
+            <a href="#">Traditional</a>
+            <a href="#">Sangeet</a>
+          </div>
         </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">BABY PHOTOGRAPHY ▾</a>
-        <div class="dropdown-content">
-          <a href="#">Outdoor Shoots</a>
-          <a href="#">Studio Shoots</a>
-          <a href="#">Baby Shoots</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <a href="#">GALARY ▾</a>
-        <div class="dropdown-content">
-          <a href="#">Bridal Portraits</a>
-          <a href="#">Couple Portraits</a>
-          <a href="#">Groom Portraits</a>
-          <a href="#">Jewellery</a>
-          <a href="#">Rituals</a>
-          <a href="#">Candid Moments</a>
-          <a href="#">Outdoor</a>
-          <a href="#">Studio Shoots</a>
-        </div>
-      </div>
 
-      <a href="https://wa.me/917083700900" target="_blank" rel="noopener">Contact</a>
-    </nav>
-    <a class="btn schedule" href="tel:+917083700900">Schedule a Call</a>
-  </div>
-</header>
+        <div class="dropdown">
+          <a href="{{ url_for('baby') }}">BABY PHOTOGRAPHY ▾</a>
+          <div class="dropdown-content">
+            <a href="#">Outdoor Shoots</a>
+            <a href="#">Studio Shoots</a>
+            <a href="#">Baby Shoots</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <a href="{{ url_for('gallery') }}">GALLERY ▾</a>
+          <div class="dropdown-content">
+            <a href="#">Bridal Portraits</a>
+            <a href="#">Couple Portraits</a>
+            <a href="#">Groom Portraits</a>
+            <a href="#">Jewellery</a>
+            <a href="#">Rituals</a>
+            <a href="#">Candid Moments</a>
+            <a href="#">Outdoor</a>
+            <a href="#">Studio Shoots</a>
+          </div>
+        </div>
+
+        <a href="{{ url_for('contact') }}">CONTACT</a>
+      </nav>
+
+      <a class="btn schedule" href="tel:+917083700900">Schedule a Call</a>
+    </div>
+  </header>
+
+{% block content %}{% endblock %}
+
 
 
   <main>

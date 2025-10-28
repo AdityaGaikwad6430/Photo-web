@@ -1,4 +1,3 @@
-
 import os
 import time
 import smtplib
@@ -8,8 +7,6 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 import pymysql
-
-
 
 # Load .env
 load_dotenv()
@@ -23,11 +20,9 @@ DB_PORT = os.getenv("DB_PORT", "3306")
 FLASK_SECRET = os.getenv("FLASK_SECRET", "change_this_secret")
 DEBUG = os.getenv("FLASK_DEBUG", "0") == "1"
 
-SQLALCHEMY_DATABASE_URI = (
-    f"mysql+pymysql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-)
+SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
-# App factory-ish single-module app
+# Flask app setup
 app = Flask(__name__, static_folder="static", template_folder="Templates")
 app.jinja_env.globals['datetime'] = datetime
 app.secret_key = FLASK_SECRET
@@ -37,8 +32,6 @@ app.config["DEBUG"] = DEBUG
 
 db = SQLAlchemy(app)
 
-
-
 # ---------- Models ----------
 class Photographer(db.Model):
     __tablename__ = "photographers"
@@ -47,15 +40,13 @@ class Photographer(db.Model):
     bio = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-
 class Shot(db.Model):
     __tablename__ = "shots"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(150), nullable=True)
-    filename = db.Column(db.String(255), nullable=False)  # store filename only
+    filename = db.Column(db.String(255), nullable=False)
     caption = db.Column(db.String(255), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-
 
 class ContactMessage(db.Model):
     __tablename__ = "contact_messages"
@@ -64,7 +55,6 @@ class ContactMessage(db.Model):
     email = db.Column(db.String(180), nullable=False)
     message = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-
 
 class ScheduleRequest(db.Model):
     __tablename__ = "schedule_requests"
@@ -75,10 +65,8 @@ class ScheduleRequest(db.Model):
     notes = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-
 # ---------- Helpers ----------
 def wait_for_mysql(host: str, port: int = 3306, user: str = "root", password: str = "", dbname: str = None, retries: int = 12, delay: int = 2):
-    """Wait for MySQL to be reachable before creating tables. Retries with delay."""
     attempt = 0
     while attempt < retries:
         try:
@@ -92,7 +80,6 @@ def wait_for_mysql(host: str, port: int = 3306, user: str = "root", password: st
             time.sleep(delay)
     raise RuntimeError("Could not connect to MySQL after multiple attempts.")
 
-
 # ---------- Routes ----------
 @app.route("/")
 def index():
@@ -100,9 +87,8 @@ def index():
     shots = Shot.query.order_by(Shot.created_at.desc()).limit(6).all()
     return render_template("index.html", photographer=photographer, shots=shots, datetime=datetime)
 
-
 @app.route("/contact", methods=["POST"])
-def contact():
+def contact_submit():
     name = request.form.get("name", "").strip()
     email = request.form.get("email", "").strip()
     message = request.form.get("message", "").strip()
@@ -115,6 +101,9 @@ def contact():
     flash("Message received. Thank you — I will get back to you.", "success")
     return redirect(url_for("index"))
 
+@app.route("/contact")
+def contact_page():
+    return render_template("contact.html")
 
 @app.route("/schedule", methods=["POST"])
 def schedule():
@@ -136,19 +125,18 @@ def schedule():
     flash("Schedule request sent. I will confirm ASAP.", "success")
     return redirect(url_for("index"))
 
-
 @app.route("/api/shots")
 def api_shots():
     shots = Shot.query.order_by(Shot.created_at.desc()).all()
     data = [{"id": s.id, "title": s.title, "filename": s.filename, "caption": s.caption} for s in shots]
     return jsonify(data)
 
-@app.route('/schedule/email', methods=['POST'])
+@app.route("/schedule/email", methods=["POST"])
 def schedule_email():
-    client_name = request.form.get('client_name')
-    email = request.form.get('email')
-    preferred_date = request.form.get('preferred_date')
-    notes = request.form.get('notes')
+    client_name = request.form.get("client_name")
+    email = request.form.get("email")
+    preferred_date = request.form.get("preferred_date")
+    notes = request.form.get("notes")
 
     message = f"""\
 Subject: New Shoot Request
@@ -170,34 +158,32 @@ Notes: {notes}
 
     return "Request sent via Email!"
 
+@app.route("/weddings")
+def weddings():
+    return render_template("weddings.html")
 
-# ---------- DB init on startup (automated but safe) ----------
+@app.route("/baby")
+def baby():
+    return render_template("baby.html")
+
+@app.route("/gallery")
+def gallery():
+    return render_template("gallery.html")
+
+# ---------- DB setup ----------
 def ensure_db_ready_and_migrate():
-    # Wait for DB to be reachable (works in Docker Compose where host=db)
     wait_for_mysql(host=DB_HOST, port=int(DB_PORT), user=DB_USER, password=DB_PASS, dbname=DB_NAME, retries=20, delay=2)
-
-    # Create tables if they do not exist
     with app.app_context():
         db.create_all()
         app.logger.info("Ensured database tables exist.")
 
-
-# Run the DB readiness check only when imported/run by server process (not during unit tests unless desired)
 try:
-    # Only attempt DB readiness when not in test environment
     if __name__ != "pytest":
         ensure_db_ready_and_migrate()
 except Exception as e:
-    # If DB can't be reached, fail fast so container logs show why
     app.logger.exception("Database initialization failed: %s", e)
-    # Re-raise to stop the process (so Docker restarts according to restart policy)
     raise
 
-
+# ---------- Run ----------
 if __name__ == "__main__":
-    # Local dev fallback; in production you'll use Gunicorn (configured in Dockerfile)
     app.run(debug=DEBUG, host="0.0.0.0", port=int(os.getenv("PORT", 5000)))
-
-
-
-
