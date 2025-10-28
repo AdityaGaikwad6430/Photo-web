@@ -77,7 +77,7 @@ body {
 .btn.schedule {
   background: var(--accent);
   color: #fff;
-  padding: 18x 20px;
+  padding: 10px 18px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 700;
@@ -86,7 +86,8 @@ body {
 
 .btn.schedule:hover {
   background: #ff44c1cb;
-  box-shadow: 0 0 15px rgba(243, 0, 174, 0.7);
+  box-shadow: 0 0 30px 8px rgba(243, 0, 174, 0.9);
+  transform: scale(1.05);
 }
 
 /* Hero */
