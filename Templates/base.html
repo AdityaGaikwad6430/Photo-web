@@ -1,81 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yash | Photographer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhotoWeb</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">PhotoWeb</div>
-      <nav class="main-nav">
-        <a href="{{ url_for('home') }}">HOME</a>
 
-        <div class="dropdown">
-          <a href="{{ url_for('weddings') }}">WEDDINGS ▾</a>
-          <div class="dropdown-content">
-            <a href="#">Outdoor</a>
-            <a href="#">Engagement</a>
-            <a href="#">Haldi</a>
-            <a href="#">Traditional</a>
-            <a href="#">Sangeet</a>
-          </div>
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo">PhotoWeb</div>
+    <nav class="main-nav">
+      <a href="{{ url_for('index') }}">HOME</a>
+
+      <div class="dropdown">
+        <a href="{{ url_for('weddings') }}">WEDDINGS ▾</a>
+        <div class="dropdown-content">
+          <a href="#">Outdoor</a>
+          <a href="#">Engagement</a>
+          <a href="#">Haldi</a>
+          <a href="#">Traditional</a>
+          <a href="#">Sangeet</a>
         </div>
+      </div>
 
-        <div class="dropdown">
-          <a href="{{ url_for('baby') }}">BABY PHOTOGRAPHY ▾</a>
-          <div class="dropdown-content">
-            <a href="#">Outdoor Shoots</a>
-            <a href="#">Studio Shoots</a>
-            <a href="#">Baby Shoots</a>
-          </div>
+      <div class="dropdown">
+        <a href="{{ url_for('baby') }}">BABY PHOTOGRAPHY ▾</a>
+        <div class="dropdown-content">
+          <a href="#">Outdoor Shoots</a>
+          <a href="#">Studio Shoots</a>
+          <a href="#">Baby Shoots</a>
         </div>
+      </div>
 
-        <div class="dropdown">
-          <a href="{{ url_for('gallery') }}">GALLERY ▾</a>
-          <div class="dropdown-content">
-            <a href="#">Bridal Portraits</a>
-            <a href="#">Couple Portraits</a>
-            <a href="#">Groom Portraits</a>
-            <a href="#">Jewellery</a>
-            <a href="#">Rituals</a>
-            <a href="#">Candid Moments</a>
-            <a href="#">Outdoor</a>
-            <a href="#">Studio Shoots</a>
-          </div>
+      <div class="dropdown">
+        <a href="{{ url_for('gallery') }}">GALLERY ▾</a>
+        <div class="dropdown-content">
+          <a href="#">Bridal Portraits</a>
+          <a href="#">Couple Portraits</a>
+          <a href="#">Groom Portraits</a>
+          <a href="#">Jewellery</a>
+          <a href="#">Rituals</a>
+          <a href="#">Candid Moments</a>
+          <a href="#">Outdoor</a>
+          <a href="#">Studio Shoots</a>
         </div>
+      </div>
 
-        <a href="{{ url_for('contact') }}">CONTACT</a>
-      </nav>
+      <a href="{{ url_for('contact_page') }}">CONTACT</a>
+    </nav>
 
-      <a class="btn schedule" href="tel:+917083700900">Schedule a Call</a>
-    </div>
-  </header>
+    <a class="btn schedule" href="tel:+917083700900">Schedule a Call</a>
+  </div>
+</header>
 
-{% block content %}{% endblock %}
+<main>
+  {% block content %}{% endblock %}
+</main>
 
+<footer>
+  <p>© 2025 PhotoWeb. All rights reserved.</p>
+</footer>
 
-
-  <main>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <div class="flash-wrap">
-          {% for category, message in messages %}
-            <div class="flash {{ category }}">{{ message }}</div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endwith %}
-
-    {% block content %}{% endblock %}
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; {{ datetime.utcnow().year }} Yash Gaikwad Photography</p>
-    </div>
-  </footer>
 </body>
 </html>
