@@ -1,5 +1,5 @@
 :root {
-  --bg: #FFF1CB;
+  --bg: #f3f3f3ff;
   --muted: #bfbfbf;
   --accent: #f300ae;
   --card-bg: #0f0f0f;
@@ -149,5 +149,6 @@ body {
   .hero-left, .hero-right { width: 100%; }
   .name { font-size: 48px; }
 }
+
 
 
