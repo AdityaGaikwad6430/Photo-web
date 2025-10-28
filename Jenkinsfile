@@ -4,6 +4,13 @@ pipeline {
     agent {label "Node1"}
 
     stages {
+        stage("Clean workshop") {
+            steps {
+                script {
+                    cleanWs()
+                }
+            }
+        }
         stage("Code") {
             steps {
                 script {
@@ -26,14 +33,8 @@ pipeline {
                 }
             }
         }
-        stage("Clean workshop") {
-            steps {
-                script {
-                    cleanWs()
-                }
-            }
-        }
     }
 }
+
 
 
