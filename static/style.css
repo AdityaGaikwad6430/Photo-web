@@ -25,11 +25,19 @@ body {
 
 /* Header */
 .site-header {
-  background: #f8f6f6;
+  background: rgba(15, 15, 15, 0.95);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(243, 0, 174, 0.3); /* subtle magenta glow */
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.site-header:hover {
+  box-shadow: 0 0 25px rgba(243, 0, 174, 0.6);
+  background: rgba(15, 15, 15, 1);
 }
 
 .header-inner {
@@ -44,12 +52,13 @@ body {
   font-weight: 800;
   font-size: 22px;
   letter-spacing: 1px;
-  transition: var(--transition);
+  text-shadow: 0 0 10px rgba(243, 0, 174, 0.494);
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .logo:hover {
-  transform: scale(1.08);
-  text-shadow: 0 0 8px var(--accent);
+  text-shadow: 0 0 20px rgba(243, 0, 174, 0.708);
+  transform: scale(1.05);
 }
 
 .main-nav a {
@@ -72,13 +81,12 @@ body {
   border-radius: 6px;
   text-decoration: none;
   font-weight: 700;
-  transition: var(--transition);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn.schedule:hover {
-  background: #ff44c0;
-  transform: scale(1.05);
-  box-shadow: 0 0 12px var(--accent);
+  background: #ff44c1cb;
+  box-shadow: 0 0 15px rgba(243, 0, 174, 0.7);
 }
 
 /* Hero */
