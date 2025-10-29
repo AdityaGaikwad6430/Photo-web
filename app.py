@@ -133,12 +133,18 @@ Preferred Date: {preferred_date}
 Notes: {notes}
 """
 
-    with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
-        smtp.starttls()
-        smtp.login('adityagaikwad6430@gmail.com', 'ygql wvot xnux qjuz')
-        smtp.sendmail('adityagaikwad6430@gmail.com', 'adityagaikwad6430@gmail.com', message)
+    EMAIL_USER = os.getenv("EMAIL_USER")
+    EMAIL_PASS = os.getenv("EMAIL_PASS")
 
-    return "Request sent via Email!"
+    try:
+        with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+            smtp.starttls()
+            smtp.login(EMAIL_USER, EMAIL_PASS)
+            smtp.sendmail(EMAIL_USER, EMAIL_USER, message)
+        return "Request sent via Email!"
+    except Exception as e:
+        app.logger.error(f"Email send failed: {e}")
+        return "Error sending email. Please try again later."
 
 # ---------- SUBPAGE ROUTES ----------
 # Weddings
