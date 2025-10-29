@@ -127,7 +127,7 @@ body {
 
 /* Right column */
 .hero-right { width: 55%; }
-.greet { color: var(--muted); margin: 0; font-size: 14px; }
+.greet { color:#000000; margin: 0; font-size: 14px; }
 .name {
   font-size: 72px;
   margin: 6px 0 18px;
