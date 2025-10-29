@@ -58,7 +58,7 @@ body {
 }
 
 .logo:hover {
-  text-shadow: 0 0 20px rgba(243, 0, 174, 0.708);
+  text-shadow: 0 0 20px rgb(0, 0, 0);
   transform: scale(1.05);
 }
 
@@ -78,7 +78,7 @@ body {
 .btn.schedule {
   background: var(--accent);
   color: #fff;
-  padding: 26px 42px;
+  padding:20px 36px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: 700;
@@ -173,7 +173,7 @@ body {
   transform: scale(1.05);
   box-shadow: 0 0 10px var(--accent);
 }
-.shot-caption { margin-top: 8px; color: #231e1e; font-size: 14px; }
+.shot-caption { margin-top: 8px; color: #000000; font-size: 14px; }
 
 /* Contact form */
 .contact { margin-top: 40px; }

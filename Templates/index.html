@@ -25,7 +25,7 @@
 </section>
 
 <section class="gallery container">
-  <h2>Latest shots</h2>
+  <h2>Best Shots</h2>
   <div class="shots-grid">
     {% if shots and shots|length > 0 %}
       {% for shot in shots %}
@@ -38,7 +38,7 @@
       <!-- Fallback static images if no DB shots exist -->
       <div class="shot-card">
         <img src="{{ url_for('static', filename='Images/Image1.jpg') }}" alt="Fallback Shot 1">
-        <div class="shot-caption">Studio Shoot</div>
+        <div class="shot-caption"></div>
       </div>
       <div class="shot-card">
         <img src="{{ url_for('static', filename='Images/Image2.jpg') }}" alt="Fallback Shot 2">
