@@ -95,11 +95,11 @@ body {
 .hero {
   display: flex;
   gap: 40px;
-  align-items: center;
+  align-items: left;
   padding-top: 40px;
 }
 .hero-left {
-  position: left;
+  position: relative;
   width: 45%;
 }
 .profile-photo {
