@@ -1,7 +1,7 @@
 :root {
   --bg: #f3f3f3ff;
   --muted: #bfbfbf;
-  --accent: #f300ae;
+  --accent: #ff0073;
   --card-bg: #0f0f0f;
   --transition: all 0.3s ease; /* added for hover smoothness */
 }
@@ -26,7 +26,7 @@ body {
 /* Header */
 .site-header {
   height: 80px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(151 126 126 / 95%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   position: sticky;
   top: 0;
