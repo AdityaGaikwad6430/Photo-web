@@ -1,0 +1,48 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <nav class="main-nav">
+      <a href="{{ url_for('index') }}">HOME</a>
+
+      <!-- Weddings Dropdown -->
+      <div class="dropdown">
+        <a href="#">WEDDINGS ▾</a>
+        <div class="dropdown-content">
+          <a href="{{ url_for('wedding_outdoor') }}">Outdoor</a>
+          <a href="{{ url_for('wedding_engagement') }}">Engagement</a>
+          <a href="{{ url_for('wedding_haldi') }}">Haldi</a>
+          <a href="{{ url_for('wedding_traditional') }}">Traditional</a>
+          <a href="{{ url_for('wedding_sangeet') }}">Sangeet</a>
+        </div>
+      </div>
+
+      <!-- Baby Photography Dropdown -->
+      <div class="dropdown">
+        <a href="#">BABY PHOTOGRAPHY ▾</a>
+        <div class="dropdown-content">
+          <a href="{{ url_for('baby_outdoor') }}">Outdoor Shoots</a>
+          <a href="{{ url_for('baby_studio') }}">Studio Shoots</a>
+          <a href="{{ url_for('baby_babyshoots') }}">Baby Shoots</a>
+        </div>
+      </div>
+
+      <!-- Gallery Dropdown -->
+      <div class="dropdown">
+        <a href="#">GALLERY ▾</a>
+        <div class="dropdown-content">
+          <a href="{{ url_for('gallery_bridal') }}">Bridal Portraits</a>
+          <a href="{{ url_for('gallery_couple') }}">Couple Portraits</a>
+          <a href="{{ url_for('gallery_groom') }}">Groom Portraits</a>
+          <a href="{{ url_for('gallery_jewellery') }}">Jewellery</a>
+          <a href="{{ url_for('gallery_rituals') }}">Rituals</a>
+          <a href="{{ url_for('gallery_candid') }}">Candid Moments</a>
+          <a href="{{ url_for('gallery_outdoor') }}">Outdoor</a>
+          <a href="{{ url_for('gallery_studio') }}">Studio Shoots</a>
+        </div>
+      </div>
+
+      <a href="{{ url_for('contact_page') }}">CONTACT</a>
+    </nav>
+
+    <a class="btn schedule" href="tel:+917083700900">Schedule a Call</a>
+  </div>
+</header>
