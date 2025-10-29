@@ -99,7 +99,7 @@ body {
   padding-top: 40px;
 }
 .hero-left {
-  position: relative;
+  position: left;
   width: 45%;
 }
 .profile-photo {
