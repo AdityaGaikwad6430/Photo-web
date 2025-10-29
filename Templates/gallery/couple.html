@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Couple Portraits | Shutter Studios</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  {% include 'header.html' %}
+  
+  <section class="page-section">
+    <div class="container">
+      <h1 class="section-title">Couple Portraits</h1>
+      <p class="section-description">
+        Beautifully capturing the love and chemistry between couples in stunning frames.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="{{ url_for('static', filename='images/couple/1.jpg') }}" alt="Couple Portrait 1"></div>
+        <div class="gallery-item"><img src="{{ url_for('static', filename='images/couple/2.jpg') }}" alt="Couple Portrait 2"></div>
+        <div class="gallery-item"><img src="{{ url_for('static', filename='images/couple/3.jpg') }}" alt="Couple Portrait 3"></div>
+      </div>
+    </div>
+  </section>
+  
+  {% include 'footer.html' %}
+</body>
+</html>

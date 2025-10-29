@@ -21,7 +21,7 @@ DEBUG = os.getenv("FLASK_DEBUG", "0") == "1"
 SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 # Flask setup
-app = Flask(__name__, static_folder="static", template_folder="Templates")
+app = Flask(__name__, static_folder="static", template_folder="templates")
 app.jinja_env.globals['datetime'] = datetime
 app.secret_key = FLASK_SECRET
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
@@ -38,7 +38,6 @@ class Photographer(db.Model):
     bio = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-
 class Shot(db.Model):
     __tablename__ = "shots"
     id = db.Column(db.Integer, primary_key=True)
@@ -46,7 +45,6 @@ class Shot(db.Model):
     filename = db.Column(db.String(255), nullable=False)
     caption = db.Column(db.String(255), nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-
 
 class ContactMessage(db.Model):
     __tablename__ = "contact_messages"
@@ -56,7 +54,6 @@ class ContactMessage(db.Model):
     message = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-
 class ScheduleRequest(db.Model):
     __tablename__ = "schedule_requests"
     id = db.Column(db.Integer, primary_key=True)
@@ -65,7 +62,6 @@ class ScheduleRequest(db.Model):
     preferred_date = db.Column(db.String(50), nullable=True)
     notes = db.Column(db.Text, nullable=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-
 
 # ---------- HELPERS ----------
 def wait_for_mysql(host, port=3306, user="root", password="", dbname=None, retries=12, delay=2):
@@ -82,7 +78,6 @@ def wait_for_mysql(host, port=3306, user="root", password="", dbname=None, retri
             time.sleep(delay)
     raise RuntimeError("Could not connect to MySQL after multiple attempts.")
 
-
 # ---------- ROUTES ----------
 @app.route("/")
 def index():
@@ -90,11 +85,9 @@ def index():
     shots = Shot.query.order_by(Shot.created_at.desc()).limit(6).all()
     return render_template("index.html", photographer=photographer, shots=shots, datetime=datetime)
 
-
 @app.route("/contact")
 def contact_page():
     return render_template("contact.html")
-
 
 @app.route("/contact/submit", methods=["POST"])
 def contact_submit():
@@ -110,7 +103,6 @@ def contact_submit():
     flash("Message received. Thank you — I will get back to you.", "success")
     return redirect(url_for("index"))
 
-
 @app.route("/schedule", methods=["POST"])
 def schedule():
     client_name = request.form.get("client_name", "").strip()
@@ -125,7 +117,6 @@ def schedule():
     db.session.commit()
     flash("Schedule request sent. I will confirm ASAP.", "success")
     return redirect(url_for("index"))
-
 
 @app.route("/schedule/email", methods=["POST"])
 def schedule_email():
@@ -149,27 +140,64 @@ Notes: {notes}
 
     return "Request sent via Email!"
 
-@app.route("/weddings")
-def weddings():
-    return render_template("weddings.html")
+# ---------- SUBPAGE ROUTES ----------
+# Weddings
+@app.route("/wedding/outdoor")
+def wedding_outdoor(): return render_template("wedding/outdoor.html")
 
+@app.route("/wedding/engagement")
+def wedding_engagement(): return render_template("wedding/engagement.html")
 
-@app.route("/baby")
-def baby():
-    return render_template("baby.html")
+@app.route("/wedding/haldi")
+def wedding_haldi(): return render_template("wedding/haldi.html")
 
+@app.route("/wedding/traditional")
+def wedding_traditional(): return render_template("wedding/traditional.html")
 
-@app.route("/gallery")
-def gallery():
-    return render_template("gallery.html")
+@app.route("/wedding/sangeet")
+def wedding_sangeet(): return render_template("wedding/sangeet.html")
 
+# Baby Photography
+@app.route("/baby/outdoor")
+def baby_outdoor(): return render_template("baby/outdoor.html")
 
+@app.route("/baby/studio")
+def baby_studio(): return render_template("baby/studio.html")
+
+@app.route("/baby/babyshoots")
+def baby_babyshoots(): return render_template("baby/babyshoots.html")
+
+# Gallery
+@app.route("/gallery/bridal")
+def gallery_bridal(): return render_template("gallery/bridal.html")
+
+@app.route("/gallery/couple")
+def gallery_couple(): return render_template("gallery/couple.html")
+
+@app.route("/gallery/groom")
+def gallery_groom(): return render_template("gallery/groom.html")
+
+@app.route("/gallery/jewellery")
+def gallery_jewellery(): return render_template("gallery/jewellery.html")
+
+@app.route("/gallery/rituals")
+def gallery_rituals(): return render_template("gallery/rituals.html")
+
+@app.route("/gallery/candid")
+def gallery_candid(): return render_template("gallery/candid.html")
+
+@app.route("/gallery/outdoor")
+def gallery_outdoor(): return render_template("gallery/outdoor.html")
+
+@app.route("/gallery/studio")
+def gallery_studio(): return render_template("gallery/studio.html")
+
+# ---------- API ----------
 @app.route("/api/shots")
 def api_shots():
     shots = Shot.query.order_by(Shot.created_at.desc()).all()
     data = [{"id": s.id, "title": s.title, "filename": s.filename, "caption": s.caption} for s in shots]
     return jsonify(data)
-
 
 # ---------- DB SETUP ----------
 def ensure_db_ready_and_migrate():
@@ -178,14 +206,12 @@ def ensure_db_ready_and_migrate():
         db.create_all()
         app.logger.info("Ensured database tables exist.")
 
-
 try:
     if __name__ != "pytest":
         ensure_db_ready_and_migrate()
 except Exception as e:
     app.logger.exception("Database initialization failed: %s", e)
     raise
-
 
 # ---------- RUN ----------
 if __name__ == "__main__":

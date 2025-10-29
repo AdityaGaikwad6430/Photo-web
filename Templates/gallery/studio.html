@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Shoots | Shutter Studios</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  {% include 'header.html' %}
+  
+  <section class="page-section">
+    <div class="container">
+      <h1 class="section-title">Studio Shoots</h1>
+      <p class="section-description">
+        Professional indoor photography with controlled lighting and elegant backdrops.
+      </p>
+
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="{{ url_for('static', filename='images/studio/1.jpg') }}" alt="Studio 1"></div>
+        <div class="gallery-item"><img src="{{ url_for('static', filename='images/studio/2.jpg') }}" alt="Studio 2"></div>
+        <div class="gallery-item"><img src="{{ url_for('static', filename='images/studio/3.jpg') }}" alt="Studio 3"></div>
+      </div>
+    </div>
+  </section>
+
+  {% include 'footer.html' %}
+</body>
+</html>

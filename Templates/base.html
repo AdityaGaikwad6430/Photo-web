@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PhotoWeb</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 <body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">PhotoWeb</div>
+      <nav class="main-nav">
+        <a href="{{ url_for('index') }}">HOME</a>
 
-<header class="site-header">
-  <div class="container header-inner">
-    <div class="logo">PhotoWeb</div>
-    <nav class="main-nav">
-      <a href="{{ url_for('index') }}">HOME</a>
-
-      <div class="dropdown">
-        <a href="{{ url_for('weddings') }}">WEDDINGS ▾</a>
-        <div class="dropdown-content">
-          <a href="#">Outdoor</a>
-          <a href="#">Engagement</a>
-          <a href="#">Haldi</a>
-          <a href="#">Traditional</a>
-          <a href="#">Sangeet</a>
+        <!-- Weddings Dropdown -->
+        <div class="dropdown">
+          <a href="#">WEDDINGS ▾</a>
+          <div class="dropdown-content">
+            <a href="{{ url_for('wedding_outdoor') }}">Outdoor</a>
+            <a href="{{ url_for('wedding_engagement') }}">Engagement</a>
+            <a href="{{ url_for('wedding_haldi') }}">Haldi</a>
+            <a href="{{ url_for('wedding_traditional') }}">Traditional</a>
+            <a href="{{ url_for('wedding_sangeet') }}">Sangeet</a>
+          </div>
         </div>
-      </div>
 
-      <div class="dropdown">
-        <a href="{{ url_for('baby') }}">BABY PHOTOGRAPHY ▾</a>
-        <div class="dropdown-content">
-          <a href="#">Outdoor Shoots</a>
-          <a href="#">Studio Shoots</a>
-          <a href="#">Baby Shoots</a>
+        <!-- Baby Photography Dropdown -->
+        <div class="dropdown">
+          <a href="#">BABY PHOTOGRAPHY ▾</a>
+          <div class="dropdown-content">
+            <a href="{{ url_for('baby_outdoor') }}">Outdoor Shoots</a>
+            <a href="{{ url_for('baby_studio') }}">Studio Shoots</a>
+            <a href="{{ url_for('baby_shoot') }}">Baby Shoots</a>
+          </div>
         </div>
-      </div>
 
-      <div class="dropdown">
-        <a href="{{ url_for('gallery') }}">GALLERY ▾</a>
-        <div class="dropdown-content">
-          <a href="#">Bridal Portraits</a>
-          <a href="#">Couple Portraits</a>
-          <a href="#">Groom Portraits</a>
-          <a href="#">Jewellery</a>
-          <a href="#">Rituals</a>
-          <a href="#">Candid Moments</a>
-          <a href="#">Outdoor</a>
-          <a href="#">Studio Shoots</a>
+        <!-- Gallery Dropdown -->
+        <div class="dropdown">
+          <a href="#">GALLERY ▾</a>
+          <div class="dropdown-content">
+            <a href="{{ url_for('gallery_bridal') }}">Bridal Portraits</a>
+            <a href="{{ url_for('gallery_couple') }}">Couple Portraits</a>
+            <a href="{{ url_for('gallery_groom') }}">Groom Portraits</a>
+            <a href="{{ url_for('gallery_jewellery') }}">Jewellery</a>
+            <a href="{{ url_for('gallery_rituals') }}">Rituals</a>
+            <a href="{{ url_for('gallery_candid') }}">Candid Moments</a>
+            <a href="{{ url_for('gallery_outdoor') }}">Outdoor</a>
+            <a href="{{ url_for('gallery_studio') }}">Studio Shoots</a>
+          </div>
         </div>
-      </div>
 
-      <a href="{{ url_for('contact_page') }}">CONTACT</a>
-    </nav>
+        <a href="{{ url_for('contact_page') }}">CONTACT</a>
+      </nav>
 
-    <a class="btn schedule" href="tel:+917083700900">Schedule a Call</a>
-  </div>
-</header>
+      <a class="btn schedule" href="tel:+917083700900">Schedule a Call</a>
+    </div>
+  </header>
 
-<main>
-  {% block content %}{% endblock %}
-</main>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
 
-<footer>
-  <p>© 2025 PhotoWeb. All rights reserved.</p>
-</footer>
-
+  <footer>
+    <p>© {{ datetime.utcnow().year }} PhotoWeb. All rights reserved.</p>
+  </footer>
 </body>
 </html>
