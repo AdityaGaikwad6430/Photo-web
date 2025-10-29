@@ -21,7 +21,7 @@ DEBUG = os.getenv("FLASK_DEBUG", "0") == "1"
 SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 # Flask setup
-app = Flask(__name__, static_folder="static", template_folder="templates")
+app = Flask(__name__, static_folder="static", template_folder="Templates")
 app.jinja_env.globals['datetime'] = datetime
 app.secret_key = FLASK_SECRET
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
@@ -142,20 +142,25 @@ Notes: {notes}
 
 # ---------- SUBPAGE ROUTES ----------
 # Weddings
-@app.route("/wedding/outdoor")
-def wedding_outdoor(): return render_template("wedding/outdoor.html")
+@app.route('/wedding/outdoor')
+def wedding_outdoor():
+    return render_template('wedding/outdoor.html')
 
-@app.route("/wedding/engagement")
-def wedding_engagement(): return render_template("wedding/engagement.html")
+@app.route('/wedding/engagement')
+def wedding_engagement():
+    return render_template('wedding/engagement.html')
 
-@app.route("/wedding/haldi")
-def wedding_haldi(): return render_template("wedding/haldi.html")
+@app.route('/wedding/haldi')
+def wedding_haldi():
+    return render_template('wedding/haldi.html')
 
-@app.route("/wedding/traditional")
-def wedding_traditional(): return render_template("wedding/traditional.html")
+@app.route('/wedding/traditional')
+def wedding_traditional():
+    return render_template('wedding/traditional.html')
 
-@app.route("/wedding/sangeet")
-def wedding_sangeet(): return render_template("wedding/sangeet.html")
+@app.route('/wedding/sangeet')
+def wedding_sangeet():
+    return render_template('wedding/sangeet.html')
 
 # Baby Photography
 @app.route("/baby/outdoor")
