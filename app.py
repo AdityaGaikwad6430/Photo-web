@@ -168,15 +168,7 @@ def wedding_traditional():
 def wedding_sangeet():
     return render_template('wedding/sangeet.html')
 
-# Baby Photography
-@app.route("/baby/outdoor")
-def baby_outdoor(): return render_template("baby/outdoor.html")
 
-@app.route("/baby/studio")
-def baby_studio(): return render_template("baby/studio.html")
-
-@app.route("/baby/babyshoots")
-def baby_babyshoots(): return render_template("baby/babyshoots.html")
 
 # Gallery
 @app.route("/gallery/bridal")
