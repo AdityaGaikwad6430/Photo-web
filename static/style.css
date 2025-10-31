@@ -159,11 +159,14 @@ body {
 /* Gallery */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 300px); /* 3 columns of fixed width */
+  grid-template-columns: repeat(3, 200px);
   gap: 25px;
-  justify-content: center; /* centers all 3 columns in the middle */
+  justify-content: center;
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
+
 .gallery-item {
   position: relative;
   overflow: hidden;
