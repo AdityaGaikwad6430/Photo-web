@@ -286,7 +286,7 @@ body {
   position: absolute;
   background: #ffffff;
   min-width: 180px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 14%);
   border-radius: 8px;
   overflow: hidden;
   top: 100%;
@@ -297,14 +297,14 @@ body {
 .dropdown-content a {
   display: block;
   padding: 10px 16px;
-  color: var(--muted);
+  color: #000000;
   font-size: 14px;
   transition: all 0.25s ease;
 }
 
 .dropdown-content a:hover {
   background: var(--accent);
-  color: #fff;
+  color: #000000;
   transform: translateX(4px);
 }
 
