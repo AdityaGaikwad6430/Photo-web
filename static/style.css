@@ -163,7 +163,7 @@ body {
   gap: 25px;
   justify-content: center; /* centers all 3 columns in the middle */
   width: 100%;
-
+}
 .gallery-item {
   position: relative;
   overflow: hidden;
