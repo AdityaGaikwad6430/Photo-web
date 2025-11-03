@@ -174,6 +174,9 @@ def wedding_sangeet():
 @app.route("/gallery/bridal")
 def gallery_bridal(): return render_template("gallery/bridal.html")
 
+@app.route("/gallery/bridal/bride1/bride.html")
+def gallery_bride(): return render_template("gallery/bride2/bride.html")
+
 @app.route("/gallery/couple")
 def gallery_couple(): return render_template("gallery/couple.html")
 
