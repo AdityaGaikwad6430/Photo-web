@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bridal Portraits | Shutter Studios</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="../../static/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 </head>
@@ -14,82 +14,49 @@
   {% include 'header.html' %}
 
   <section class="page-section">
-    <div class="container">
-      <h1 class="section-title">Bridal Portraits</h1>
-      <p class="section-description">
-        Capturing timeless bridal portraits with grace, elegance, and emotion.
-      </p>
+    <div>
+      <thead>
+        <tr>
+          <th>
 
-      <!-- <div class="gallery-grid">
-        <h3>1</h3> 
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride1/1.jpg') }}" alt="Bridal Portrait 1"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride1/2.jpg') }}" alt="Bridal Portrait 2"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride1/3.jpg') }}" alt="Bridal Portrait 3"></div>
-      </div>
-      <div class="gallery-grid"> -->
-      <!-- Bride 1 -->
-      <div class="gallery-item">
-        <a href="{{ url_for('static', filename='Images/gallery/bridal/bride2/1.jpg') }}" data-lightbox="gallwey-item"
-          data-title="Shoot">
-          <img src="{{ url_for('static', filename='Images/gallery/bridal/bride2/1.jpg') }}" alt="Bride 1">
-          <div class="overlay">
-            <h3>Shoot1</h3>
-          </div>
-        </a>
-        <a href="{{ url_for('static', filename='Images/gallery/bridal/bride2/2.jpg') }}" data-lightbox="bride1-gallery"
-          style="display:none;"></a>
-        <a href="{{ url_for('static', filename='Images/gallery/bridal/bride2/3.jpg') }}" data-lightbox="bride1-gallery"
-          style="display:none;"></a>
-      </div>
+            <div class="container">
+              <h1 class="section-title">Bridal Portraits</h1>
+              <p class="section-description">
+                Capturing timeless bridal portraits with grace, elegance, and emotion.
+              </p>
+              <div class="gallery-item">
+                <a href="../../static/Images/gallery/bridal/bride1/1.jpg" data-lightbox="gallwey-item"
+                  data-title="Shoot">
+                  <img src="../../static/Images/gallery/bridal/bride1/1.jpg" alt="Bride 1">
+                  <div class="overlay">
+                    <h3>Bride1</h3>
+                  </div>
+                </a>
+              </div>
 
-      <div class="gallery-item">
-        <a href="{{ url_for('static', filename='Images/gallery/bridal/bride3/6.jpg') }}" data-lightbox="bride1-gallery"
-          data-title="Shoot">
-          <img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/5.jpg') }}" alt="Bride 1">
-          <div class="overlay">
-            <h3>Shoot2</h3>
-          </div>
-        </a>
-        <a href="{{ url_for('static', filename='Images/gallery/bridal/bride3/3.jpg') }}" data-lightbox="bride1-gallery"
-          style="display:none;"></a>
-        <a href="{{ url_for('static', filename='Images/gallery/bridal/bride3/4.jpg') }}" data-lightbox="bride1-gallery"
-          style="display:none;"></a>
-      </div>
+              <div class="gallery-item">
+                <a href="../../static/Images/gallery/bridal/bride2/5.jpg" data-lightbox="bride1-gallery"
+                  data-title="Shoot">
+                  <img src="../../static/Images/gallery/bridal/bride2/5.jpg" alt="Bride 2">
+                  <div class="overlay">
+                    <h3>Bride2</h3>
+                  </div>
+                </a>
+              </div>
 
-      <div class="gallery-item">
-        <a href="{{ url_for('static', filename='Images/gallery/bridal/bride3/1.jpg') }}" data-lightbox="bride1-gallery"
-          data-title="Shoot">
-          <img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/1.jpg') }}" alt="Bride 1">
-          <div class="overlay">
-            <h3>Shoot3</h3>
-          </div>
-        </a>
-        <a href="{{ url_for('static', filename='Images/gallery/bridal/bride3/1.jpg') }}" data-lightbox="bride1-gallery"
-          style="display:none;">1</a>
-        <a href="{{ url_for('static', filename='Images/gallery/bridal/bride3/2.jpg') }}" data-lightbox="bride1-gallery"
-          style="display:none;">2</a>
-      </div>
-
-      <!-- <div class="gallery-grid">
-        <h3>2</h3><a href="">
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride2/1.jpg') }}" alt="Bridal Portrait 1"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride2/2.jpg') }}" alt="Bridal Portrait 2"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride2/3.jpg') }}" alt="Bridal Portrait 3"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride2/4.jpg') }}" alt="Bridal Portrait 4"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride2/5.jpg') }}" alt="Bridal Portrait 5"></div>
-        </a>
-      </div>
-      <div class="gallery-grid">
-        <h3>3</h3>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/1.jpg') }}" alt="Bridal Portrait 1"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/2.jpg') }}" alt="Bridal Portrait 2"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/3.jpg') }}" alt="Bridal Portrait 3"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/4.jpg') }}" alt="Bridal Portrait 4"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/5.jpg') }}" alt="Bridal Portrait 5"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/6.jpg') }}" alt="Bridal Portrait 6"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/7.jpg') }}" alt="Bridal Portrait 7"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='Images/gallery/bridal/bride3/8.jpg') }}" alt="Bridal Portrait 8"></div>
-      </div> -->
+              <div class="gallery-item">
+                <a href="../../static/Images/gallery/bridal/bride3/4.jpg" data-lightbox="bride1-gallery"
+                  data-title="Shoot">
+                  <img src="../../static/Images/gallery/bridal/bride3/4.jpg" alt="Bride 2">
+                  <div class="overlay">
+                    <h3>bride3</h3>
+                  </div>
+                </a>
+              </div>
+            </div>
+            </td>
+        </tr>
+      </thead>
     </div>
   </section>
   {% include 'footer.html' %}
