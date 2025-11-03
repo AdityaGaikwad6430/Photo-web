@@ -1,7 +1,7 @@
 @Library('Shared') _
 
 pipeline {
-    agent {label "Node1"}
+    agent any
 
     stages {
         stage("Clean workshop") {
@@ -35,6 +35,7 @@ pipeline {
         }
     }
 }
+
 
 
 
