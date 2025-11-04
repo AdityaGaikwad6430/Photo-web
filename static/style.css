@@ -188,12 +188,12 @@ body {
 /* Gallery */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 200px);
-  column-count: 2;
+  grid-template-columns: 60px 60px;
+  grid-template-rows: auto;
+  column-count: 3;
   column-fill: auto;
   gap: 25px;
   justify-content: center;
-  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
