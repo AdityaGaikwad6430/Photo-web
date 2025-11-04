@@ -189,6 +189,8 @@ body {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 200px);
+  column-count: 2;
+  column-fill: auto;
   gap: 25px;
   justify-content: center;
   width: 100%;
@@ -197,7 +199,7 @@ body {
 }
 
 .gallery-item {
-
+  column-count: 2;
   position: relative;
   overflow: hidden;
   border-radius: 12px;
