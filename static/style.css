@@ -206,10 +206,8 @@ body {
 }
 
 .gallery-item img {
-  width: 300px;
-  /* fixed width */
-  height: 500px;
-  /* fixed height */
+  max-width: 300px;
+  max-height: 500px;
   object-fit: cover;
   transition: transform 0.4s ease;
   display: block;

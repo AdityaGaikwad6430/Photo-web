@@ -183,24 +183,31 @@ def gallery_bride2(): return render_template("gallery/brides/bride2.html")
 @app.route("/gallery/brides/bride3")
 def gallery_bride3(): return render_template("gallery/brides/bride3.html")
 
+# Couple
 @app.route("/gallery/couple")
 def gallery_couple(): return render_template("gallery/couple.html")
 
+#Groom
 @app.route("/gallery/groom")
 def gallery_groom(): return render_template("gallery/groom.html")
 
+# Jewellery
 @app.route("/gallery/jewellery")
 def gallery_jewellery(): return render_template("gallery/jewellery.html")
 
+# Rituals
 @app.route("/gallery/rituals")
 def gallery_rituals(): return render_template("gallery/rituals.html")
 
+# Candid
 @app.route("/gallery/candid")
 def gallery_candid(): return render_template("gallery/candid.html")
 
+# Outdoor
 @app.route("/gallery/outdoor")
 def gallery_outdoor(): return render_template("gallery/outdoor.html")
 
+#Studio
 @app.route("/gallery/studio")
 def gallery_studio(): return render_template("gallery/studio.html")
 
