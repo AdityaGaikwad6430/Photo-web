@@ -94,3 +94,31 @@ h3 {
     justify-content: space-between;
     padding: 18px 0;
 }
+
+.main-nav a {
+    color: #191818;
+    text-decoration: none;
+    margin: 0 14px;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.main-nav a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.btn.schedule {
+    background: var(--accent);
+    color: #fff;
+    padding: 20px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn.schedule:hover {
+    background: #ff00aa87;
+    box-shadow: 0 0 15px 8px rgba(214, 2, 154, 0.776);
+    transform: scale(1.05); }
