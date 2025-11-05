@@ -385,6 +385,29 @@ body {
   animation: fadeIn 0.25s ease-in-out;
 }
 
+.dropdown .nested-dropdown {
+  position: relative;
+}
+
+.dropdown .nested-dropdown > a::after {
+  content: "▸";
+  float: right;
+  margin-left: 6px;
+}
+
+.dropdown .nested-dropdown .dropdown-content {
+  top: 0;
+  left: 100%;
+  margin-left: 4px;
+  display: none;
+}
+
+/* Show nested dropdown when hovered */
+.dropdown .nested-dropdown:hover > .dropdown-content {
+  display: block;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
