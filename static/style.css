@@ -172,12 +172,13 @@ body {
 /* Gallery */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 200px);
+  grid-template-columns: repeat(3, 300px);
   gap: 25px;
   justify-content: center;
   width: 100%;
-  max-width: 1000px;
+  max-width: 300px;
   margin: 0 auto;
+  height: auto;
 }
 
 .gallery-item {
@@ -185,8 +186,10 @@ body {
   overflow: hidden;
   border-radius: 12px;
   cursor: pointer;
-  width: 300px;
-  height: 500px;
+  width: auto;
+  max-width: 300px;
+  height: auto;
+  max-height: 500px;
 }
 
 .gallery-item img {
