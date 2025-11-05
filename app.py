@@ -150,7 +150,7 @@ Notes: {notes}
 # Packages
 @app.route('/packages')
 def packages_page():
-    return render_template('packages.html')
+    return render_template('/packages.html')
 
 # Weddings
 @app.route('/wedding/outdoor')
