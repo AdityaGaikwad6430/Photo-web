@@ -22,10 +22,12 @@
             <a href="{{ url_for('wedding_haldi') }}">Haldi</a>
             <a href="{{ url_for('wedding_traditional') }}">Traditional</a>
             <a href="{{ url_for('wedding_sangeet') }}">Sangeet</a>
-            <a href="#">Pre/Post Wedding ▸</a>
-            <div class="dropdown-content">
-              <a href="{{ url_for('wedding_prewedding') }}">Pre-Wedding Photography</a>
-              <a href="">Post-Wedding Photography</a>
+            <div class="dropdown">
+              <a href="#">Pre/Post Wedding ▸</a>
+              <div class="dropdown-content">
+                <a href="{{ url_for('wedding_prewedding') }}">Pre-Wedding Photography</a>
+                <a href="">Post-Wedding Photography</a>
+              </div>
             </div>
           </div>
         </div>
