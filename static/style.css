@@ -173,7 +173,7 @@ body {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 300px);
-  gap: 25px;
+  gap: 10px;
   justify-content: center;
   width: 100%;
   max-width: 300px;
