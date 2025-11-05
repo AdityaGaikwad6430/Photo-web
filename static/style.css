@@ -4,7 +4,6 @@
   --accent: #ff0073;
   --card-bg: #0f0f0f;
   --transition: all 0.3s ease;
-  /* added for hover smoothness */
 }
 
 * {
@@ -38,7 +37,6 @@ body {
   z-index: 1000;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 15px rgba(222, 222, 222, 0.3);
-  /* subtle magenta glow */
   transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
@@ -52,34 +50,6 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 18px 0;
-}
-
-.package-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
- padding: 0;
-  margin: 0;
-}
-.h2{
-  color: #000;
-}
-.h3{
-  color: #767272;
-  text-shadow: 1px #000;
-}
-
-.logo h1 {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--accent);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-bottom: 3px solid var(--accent);
-  padding-bottom: 10px;
-  animation: fadeIn 1.2s ease-in-out;
 }
 
 .main-nav a {

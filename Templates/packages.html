@@ -4,36 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shoot Packages</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <title>Wedding Packages | Yash Gaikwad Photography</title>
+    <link rel="stylesheet" href="../static/packages.css">
 </head>
 
-<body>
+<body class="packages-page">
+    {% include 'header.html' %}
     <section class="package-container">
-        <div class="package-container">
-            <div class="logo">
-                <H1>Yash Gaikwad Photography</H1>
+        <img src="../static/Images/package/Wedding  package copy.jpg" alt="Wedding Couple">
+        <h1>YASH GAIKWAD PHOTOGRAPHY</h1>
+        <h2>WEDDING</h2>
+        <h3>PACKAGES & PRICING</h3>
+        <div class="divider"></div>
+
+        <div class="packages">
+            <div class="package">
+                <h4>PACKAGE 1</h4>
+                <p>
+                    Candid Photo<br>
+                    Traditional Photo<br>
+                    Traditional Video
+                </p>
+                <p><strong>DELIVERABLE</strong><br>
+                    Calendar, Selected Photos & 32GB Pendrive
+                </p>
+                <p class="price">₹40,000/-</p>
             </div>
 
             <div class="package">
-                <div class="h2">
-                    <h2>
-                        Wedding
-                    </h2>
-                    <div class="h3">
-                        <h3>
-                            Basic Quality<br>
-                            Medium Quality<br>
-                            High Quality
-                        </h3>
-                    </div>
+                <h4>PACKAGE 2</h4>
+                <p>
+                    Candid Photo<br>
+                    Traditional Photo<br>
+                    Traditional Video<br>
+                    Cinematic Video
+                </p>
+                <p><strong>DELIVERABLE</strong><br>
+                    Minibook, Calendar, Selected Photos, 12x18 Frame & 64GB Pendrive
+                </p>
+                <p class="price">₹60,000/-</p>
+            </div>
 
-                </div>
-
+            <div class="package">
+                <h4>PACKAGE 3</h4>
+                <p>
+                    Candid Photo<br>
+                    Traditional Photo<br>
+                    Traditional Video<br>
+                    Cinematic Video<br>
+                    Prewedding & 1 Drone
+                </p>
+                <p><strong>DELIVERABLE</strong><br>
+                    Minibook, Calendar, Selected Photos, 12x18 Frame & 64GB Pendrive
+                </p>
+                <p class="price">₹80,000/-</p>
             </div>
         </div>
-    </section>
 
+        <div class="address">
+            <p><strong>Address:</strong> Sunil Market, Kalamb</p>
+            <p><strong>Contact:</strong> 7083700900</p>
+        </div>
+    </section>
+    {% include 'footer.html' %}
 </body>
+
 
 </html>
