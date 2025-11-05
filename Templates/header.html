@@ -7,7 +7,11 @@
       <div class="dropdown">
         <a href="#">WEDDINGS ▾</a>
         <div class="dropdown-content">
-          <a href="{{ url_for('wedding_outdoor') }}">Outdoor</a>
+          <a href="{{ url_for('wedding_prewedding') }}">Pre/Post Wedding ▸</a>
+          <div class="dropdown">
+            <a href="{{ url_for('wedding_prewedding') }}">Pre-Wedding Photography</a>
+            <a href="">Post-Wedding Photography</a>
+          </div>
           <a href="{{ url_for('wedding_engagement') }}">Engagement</a>
           <a href="{{ url_for('wedding_haldi') }}">Haldi</a>
           <a href="{{ url_for('wedding_traditional') }}">Traditional</a>
@@ -25,11 +29,7 @@
           <a href="{{ url_for('gallery_jewellery') }}">Jewellery</a>
           <a href="{{ url_for('gallery_rituals') }}">Rituals</a>
           <a href="{{ url_for('gallery_candid') }}">Candid Moments</a>
-          <a href="{{ url_for('gallery_outdoor') }}">Outdoor ▸</a>
-          <div class="dropdown">
-            <a href="">Pre-Wedding </a>
-            <a href="">Post-Wedding </a>
-          </div>
+          <a href="{{ url_for('gallery_outdoor') }}">Outdoor</a>
           <a href="{{ url_for('gallery_studio') }}">Studio Shoots</a>
         </div>
       </div>

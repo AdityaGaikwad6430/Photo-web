@@ -153,9 +153,9 @@ def packages_page():
     return render_template('/packages.html')
 
 # Weddings
-@app.route('/wedding/outdoor')
-def wedding_outdoor():
-    return render_template('wedding/outdoor.html')
+@app.route('/wedding/pre-wedding')
+def wedding_prewedding():
+    return render_template('wedding/pre-wedding.html')
 
 @app.route('/wedding/engagement')
 def wedding_engagement():
