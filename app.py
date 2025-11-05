@@ -147,6 +147,11 @@ Notes: {notes}
         return "Error sending email. Please try again later."
 
 # ---------- SUBPAGE ROUTES ----------
+# Packages
+@app.route('/packages')
+def packages_page():
+    return render_template('packages.html')
+
 # Weddings
 @app.route('/wedding/outdoor')
 def wedding_outdoor():
