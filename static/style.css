@@ -338,21 +338,7 @@ body {
     font-size: 48px;
   }
 }
-
 /* Clean dropdown base */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background: #fff;
-  min-width: 200px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  top: 100%;
-  left: 0;
-  z-index: 999;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -366,13 +352,15 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 100%; /* attaches directly below the link */
   left: 0;
   min-width: 210px;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-  overflow: hidden;
+  border: 1px solid #ddd;
+  border-top: none; /* removes top border for seamless connection */
+  border-radius: 0; /* ✅ square corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: visible; /* ✅ allows nested dropdown to appear */
   z-index: 999;
   animation: fadeIn 0.25s ease-in-out;
 }
@@ -398,7 +386,7 @@ body {
 }
 
 .dropdown-content a:hover {
-  background: var(--accent);
+  background: var(--accent, #ff007f);
   color: #fff;
 }
 
@@ -412,14 +400,17 @@ body {
   float: right;
 }
 
+/* Second-level dropdown */
 .nested-dropdown > .dropdown-content {
   top: 0;
   left: 100%;
-  margin-left: 4px;
-  min-width: 210px;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  margin-left: 0; /* ✅ no gap between levels */
+  border: 1px solid #ddd;
+  border-radius: 0; /* ✅ square corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   display: none;
+  background: #fff;
+  z-index: 1000;
   animation: fadeIn 0.25s ease-in-out;
 }
 
@@ -431,7 +422,7 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(3px);
   }
   to {
     opacity: 1;
@@ -453,6 +444,7 @@ body {
     display: none;
     box-shadow: none;
     border-radius: 0;
+    border: none;
   }
 
   .dropdown:hover > .dropdown-content,
