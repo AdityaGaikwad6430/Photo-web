@@ -354,55 +354,51 @@ body {
 }
 
 /* Dropdown links */
-.dropdown-content a {
-  display: block;
-  padding: 12px 18px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background 0.25s ease, transform 0.2s ease;
+/* Base dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.dropdown-content a:hover {
-  background: #ff0073;
-  color: #fff;
-  transform: translateX(3px);
+.dropdown a {
+  color: #000000;
+  text-decoration: none;
+  margin: 0 14px;
+  font-size: 15px;
+  transition: color 0.3s ease;
 }
 
-/* Show dropdown on hover */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #ffffff;
+  min-width: 180px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 14%);
+  border-radius: 8px;
+  overflow: hidden;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+}
+
 .dropdown:hover > .dropdown-content {
   display: block;
   animation: fadeIn 0.25s ease-in-out;
 }
 
-/* Nested dropdown (Wedding Shoots ▸ or Outdoor ▸) */
-.dropdown .nested-dropdown {
+/* Nested dropdown */
+.nested-dropdown {
   position: relative;
 }
 
-.dropdown .nested-dropdown > a::after {
-  content: "▸";
-  float: right;
-  font-size: 14px;
-  color: #000;
-  transition: transform 0.2s ease;
-}
-
-.dropdown .nested-dropdown:hover > a::after {
-  transform: translateX(2px);
-}
-
-/* Submenu alignment */
-.dropdown .nested-dropdown .dropdown-content {
+.nested-dropdown > .dropdown-content {
   top: 0;
   left: 100%;
-  margin-left: 2px;
+  margin-left: 5px;
   display: none;
-  border-radius: 8px;
 }
 
-/* Show nested on hover */
-.dropdown .nested-dropdown:hover > .dropdown-content {
+.nested-dropdown:hover > .dropdown-content {
   display: block;
   animation: fadeIn 0.25s ease-in-out;
 }
