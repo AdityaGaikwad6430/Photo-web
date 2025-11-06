@@ -8,22 +8,49 @@
 </head>
 <body>
   {% include 'header.html' %}
-  
-  <section class="page-section">
-    <div class="container">
-      <h1 class="section-title">Couple Portraits</h1>
-      <p class="section-description">
-        Beautifully capturing the love and chemistry between couples in stunning frames.
-      </p>
 
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/couple/1.jpg') }}" alt="Couple Portrait 1"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/couple/2.jpg') }}" alt="Couple Portrait 2"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/couple/3.jpg') }}" alt="Couple Portrait 3"></div>
+  <section class="page-section">
+    <div>
+      <div class="container">
+        <h1 class="section-title">Couple Portraits</h1>
+        <p class="section-description">
+          Showcasing the chemistry, warmth, and bond between two souls in love.
+        </p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/couple/1.jpg" data-lightbox="couple-gallery" data-title="Couple 1">
+                    <img src="../../static/Images/gallery/couple/1.jpg" alt="Couple 1">
+                    <div class="overlay"><h3>Couple 1</h3></div>
+                  </a>
+                </div>
+              </td>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/couple/2.jpg" data-lightbox="couple-gallery" data-title="Couple 2">
+                    <img src="../../static/Images/gallery/couple/2.jpg" alt="Couple 2">
+                    <div class="overlay"><h3>Couple 2</h3></div>
+                  </a>
+                </div>
+              </td>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/couple/3.jpg" data-lightbox="couple-gallery" data-title="Couple 3">
+                    <img src="../../static/Images/gallery/couple/3.jpg" alt="Couple 3">
+                    <div class="overlay"><h3>Couple 3</h3></div>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
+
   {% include 'footer.html' %}
-  
 </body>
 </html>

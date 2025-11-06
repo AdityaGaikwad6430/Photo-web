@@ -8,22 +8,51 @@
 </head>
 <body>
   {% include 'header.html' %}
-  
-  <section class="page-section">
-    <div class="container">
-      <h1 class="section-title">Jewellery Photography</h1>
-      <p class="section-description">
-        Highlighting the fine details and craftsmanship of jewellery through stunning imagery.
-      </p>
 
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/jewellery/1.jpg') }}" alt="Jewellery 1"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/jewellery/2.jpg') }}" alt="Jewellery 2"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/jewellery/3.jpg') }}" alt="Jewellery 3"></div>
+  <section class="page-section">
+    <div>
+      <div class="container">
+        <h1 class="section-title">Jewellery Photography</h1>
+        <p class="section-description">
+          Highlighting the fine details and craftsmanship of jewellery through stunning imagery.
+        </p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/jewellery/1.jpg" data-lightbox="jewellery-gallery" data-title="Jewellery 1">
+                    <img src="../../static/Images/gallery/jewellery/1.jpg" alt="Jewellery 1">
+                    <div class="overlay"><h3>Jewellery 1</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/jewellery/2.jpg" data-lightbox="jewellery-gallery" data-title="Jewellery 2">
+                    <img src="../../static/Images/gallery/jewellery/2.jpg" alt="Jewellery 2">
+                    <div class="overlay"><h3>Jewellery 2</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/jewellery/3.jpg" data-lightbox="jewellery-gallery" data-title="Jewellery 3">
+                    <img src="../../static/Images/gallery/jewellery/3.jpg" alt="Jewellery 3">
+                    <div class="overlay"><h3>Jewellery 3</h3></div>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
-  {% include 'footer.html' %}
 
+  {% include 'footer.html' %}
 </body>
-</html>
+

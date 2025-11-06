@@ -8,22 +8,51 @@
 </head>
 <body>
   {% include 'header.html' %}
-  
-  <section class="page-section">
-    <div class="container">
-      <h1 class="section-title">Ritual Moments</h1>
-      <p class="section-description">
-        Cherishing the sacred rituals and traditions that make every ceremony special.
-      </p>
 
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/rituals/1.jpg') }}" alt="Ritual 1"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/rituals/2.jpg') }}" alt="Ritual 2"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/rituals/3.jpg') }}" alt="Ritual 3"></div>
+  <section class="page-section">
+    <div>
+      <div class="container">
+        <h1 class="section-title">Ritual Moments</h1>
+        <p class="section-description">
+          Cherishing the sacred rituals and traditions that make every ceremony special.
+        </p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/rituals/1.jpg" data-lightbox="rituals-gallery" data-title="Ritual 1">
+                    <img src="../../static/Images/gallery/rituals/1.jpg" alt="Ritual 1">
+                    <div class="overlay"><h3>Ritual 1</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/rituals/2.jpg" data-lightbox="rituals-gallery" data-title="Ritual 2">
+                    <img src="../../static/Images/gallery/rituals/2.jpg" alt="Ritual 2">
+                    <div class="overlay"><h3>Ritual 2</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/rituals/3.jpg" data-lightbox="rituals-gallery" data-title="Ritual 3">
+                    <img src="../../static/Images/gallery/rituals/3.jpg" alt="Ritual 3">
+                    <div class="overlay"><h3>Ritual 3</h3></div>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
   {% include 'footer.html' %}
 </body>
-</html>
+

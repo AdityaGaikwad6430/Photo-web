@@ -8,22 +8,51 @@
 </head>
 <body>
   {% include 'header.html' %}
-  
-  <section class="page-section">
-    <div class="container">
-      <h1 class="section-title">Groom Portraits</h1>
-      <p class="section-description">
-        Capturing the style, elegance, and emotions of grooms on their big day.
-      </p>
 
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/groom/1.jpg') }}" alt="Groom Portrait 1"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/groom/2.jpg') }}" alt="Groom Portrait 2"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/groom/3.jpg') }}" alt="Groom Portrait 3"></div>
+  <section class="page-section">
+    <div>
+      <div class="container">
+        <h1 class="section-title">Groom Portraits</h1>
+        <p class="section-description">
+          Capturing the style, elegance, and emotions of grooms on their big day.
+        </p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/groom/1.jpg" data-lightbox="groom-gallery" data-title="Groom 1">
+                    <img src="../../static/Images/gallery/groom/1.jpg" alt="Groom 1">
+                    <div class="overlay"><h3>Groom 1</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/groom/2.jpg" data-lightbox="groom-gallery" data-title="Groom 2">
+                    <img src="../../static/Images/gallery/groom/2.jpg" alt="Groom 2">
+                    <div class="overlay"><h3>Groom 2</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/groom/3.jpg" data-lightbox="groom-gallery" data-title="Groom 3">
+                    <img src="../../static/Images/gallery/groom/3.jpg" alt="Groom 3">
+                    <div class="overlay"><h3>Groom 3</h3></div>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
-  {% include 'footer.html' %}
 
+  {% include 'footer.html' %}
 </body>
-</html>
+

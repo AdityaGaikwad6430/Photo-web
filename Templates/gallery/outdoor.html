@@ -8,22 +8,51 @@
 </head>
 <body>
   {% include 'header.html' %}
-  
-  <section class="page-section">
-    <div class="container">
-      <h1 class="section-title">Outdoor Shoots</h1>
-      <p class="section-description">
-        Natural light and scenic locations – perfect for creative outdoor photography sessions.
-      </p>
 
-      <div class="gallery-grid">
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/outdoor/1.jpg') }}" alt="Outdoor 1"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/outdoor/2.jpg') }}" alt="Outdoor 2"></div>
-        <div class="gallery-item"><img src="{{ url_for('static', filename='images/outdoor/3.jpg') }}" alt="Outdoor 3"></div>
+  <section class="page-section">
+    <div>
+      <div class="container">
+        <h1 class="section-title">Outdoor Shoots</h1>
+        <p class="section-description">
+          Natural light and scenic locations – perfect for creative outdoor photography sessions.
+        </p>
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/outdoor/1.jpg" data-lightbox="outdoor-gallery" data-title="Outdoor 1">
+                    <img src="../../static/Images/gallery/outdoor/1.jpg" alt="Outdoor 1">
+                    <div class="overlay"><h3>Outdoor 1</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/outdoor/2.jpg" data-lightbox="outdoor-gallery" data-title="Outdoor 2">
+                    <img src="../../static/Images/gallery/outdoor/2.jpg" alt="Outdoor 2">
+                    <div class="overlay"><h3>Outdoor 2</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/outdoor/3.jpg" data-lightbox="outdoor-gallery" data-title="Outdoor 3">
+                    <img src="../../static/Images/gallery/outdoor/3.jpg" alt="Outdoor 3">
+                    <div class="overlay"><h3>Outdoor 3</h3></div>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
 
   {% include 'footer.html' %}
 </body>
-</html>
+

@@ -12,40 +12,54 @@
   {% include 'header.html' %}
 
   <section class="page-section">
-    <div class="container">
-      <h1 class="section-title">Candid Moments</h1>
-      <p class="section-description">
-        Capturing spontaneous emotions and unscripted moments of joy and love.
-      </p>
-      <div class="gallery-grid"></div>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              <div class="gallery-item">
-                <img src="{{ url_for('static', filename='images/candid/3.jpg') }}"
-                  alt="Candid 3">
-              </div>
-            </th>
+    <div>
+      <div class="container">
+        <h1 class="section-title">Candid Moments</h1>
+        <p class="section-description">
+          Capturing spontaneous emotions and unscripted moments of joy and love.
+        </p>
 
-            <th>
-              <div class="gallery-item"><img src="{{ url_for('static', filename='images/candid/1.jpg') }}"
-                  alt="Candid 1">
-              </div>
-            </th>
-            <th>
-              <div class="gallery-item"><img src="{{ url_for('static', filename='images/candid/2.jpg') }}"
-                  alt="Candid 2">
-              </div>
-            </th>
-          </tr>
-        </thead>
-      </table>
-    </div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/candid/1.jpg" data-lightbox="candid-gallery" data-title="Candid 1">
+                    <img src="../../static/Images/gallery/candid/1.jpg" alt="Candid 1">
+                    <div class="overlay">
+                      <h3>Candid 1</h3>
+                    </div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/candid/2.jpg" data-lightbox="candid-gallery" data-title="Candid 2">
+                    <img src="../../static/Images/gallery/candid/2.jpg" alt="Candid 2">
+                    <div class="overlay">
+                      <h3>Candid 2</h3>
+                    </div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../static/Images/gallery/candid/3.jpg" data-lightbox="candid-gallery" data-title="Candid 3">
+                    <img src="../../static/Images/gallery/candid/3.jpg" alt="Candid 3">
+                    <div class="overlay">
+                      <h3>Candid 3</h3>
+                    </div>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
+
   {% include 'footer.html' %}
-
 </body>
-
-</html>
