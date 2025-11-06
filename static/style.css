@@ -230,28 +230,8 @@ body {
   font-weight: 600;
 }
 
-.shots-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.shot-card img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-  transition: var(--transition);
-}
-
-.shot-card img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px var(--accent);
-}
-
-.shot-caption {
-  margin-top: 8px;
-  color: #000000;
-  font-size: 14px;
+.section-title{
+  color:#a1a0a0;
 }
 
 /* Contact form */
