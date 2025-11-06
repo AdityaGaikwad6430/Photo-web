@@ -42,7 +42,12 @@
             <a href="{{ url_for('gallery_jewellery') }}">Jewellery</a>
             <a href="{{ url_for('gallery_rituals') }}">Rituals</a>
             <a href="{{ url_for('gallery_candid') }}">Candid Moments</a>
-            <a href="{{ url_for('gallery_outdoor') }}">Outdoor ▸</a>
+            <div class="nested-dropdown">
+              <a href="#">Outdoor</a>
+              <div class="dropdown-content">
+                <a href="{{ url_for('gallery_outdoor') }}"></a>
+              </div>
+            </div>
             <a href="{{ url_for('gallery_studio') }}">Studio Shoots</a>
           </div>
         </div>
