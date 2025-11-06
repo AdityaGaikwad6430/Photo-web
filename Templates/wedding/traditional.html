@@ -6,20 +6,66 @@
     <title>Traditional Weddings | Memories Studio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traditional Weddings | Shutter Studios</title>
+  <link rel="stylesheet" href="../../static/style.css">
+</head>
+
 <body>
-    {% include 'header.html' %}
-    <section class="page-header">
-        <h1>Traditional Weddings</h1>
-        <p>Preserving age-old customs and timeless rituals in every frame.</p>
-    </section>
+  {% include 'header.html' %}
 
-    <section class="gallery-grid">
-        <img src="../static/images/traditional1.jpg" alt="Traditional Wedding 1">
-        <img src="../static/images/traditional2.jpg" alt="Traditional Wedding 2">
-        <img src="../static/images/traditional3.jpg" alt="Traditional Wedding 3">
-        <img src="../static/images/traditional4.jpg" alt="Traditional Wedding 4">
-    </section>
+  <section class="page-section">
+    <div>
+      <div class="container">
+        <h1 class="section-title">Traditional Weddings</h1>
+        <p class="section-description">
+          Preserving age-old customs and timeless rituals in every frame.
+        </p>
 
-    {% include 'footer.html' %}
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../templates/gallery/traditional1.html" data-lightbox="traditional-gallery" data-title="Traditional 1">
+                    <img src="../../static/Images/wedding/traditional1.jpg" alt="Traditional 1">
+                    <div class="overlay"><h3>Traditional 1</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../templates/gallery/traditional2.html" data-lightbox="traditional-gallery" data-title="Traditional 2">
+                    <img src="../../static/Images/wedding/traditional2.jpg" alt="Traditional 2">
+                    <div class="overlay"><h3>Traditional 2</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../templates/gallery/traditional3.html" data-lightbox="traditional-gallery" data-title="Traditional 3">
+                    <img src="../../static/Images/wedding/traditional3.jpg" alt="Traditional 3">
+                    <div class="overlay"><h3>Traditional 3</h3></div>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </section>
+
+  {% include 'footer.html' %}
 </body>
+
 </html>
+

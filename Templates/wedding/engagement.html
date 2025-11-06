@@ -6,20 +6,67 @@
     <title>Engagement Shoots | Memories Studio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engagement Shoots | Shutter Studios</title>
+  <link rel="stylesheet" href="../../static/style.css">
+</head>
+
 <body>
-    {% include 'header.html' %}
-    <section class="page-header">
-        <h1>Engagement Shoots</h1>
-        <p>Celebrate the beginning of your forever with breathtaking portraits.</p>
-    </section>
+  {% include 'header.html' %}
 
-    <section class="gallery-grid">
-        <img src="../static/images/engagement/1.jpg" alt="Engagement Shoot 1">
-        <img src="../static/images/engagement/2.jpg" alt="Engagement Shoot 2">
-        <img src="../static/images/engagement/3.jpg" alt="Engagement Shoot 3">
-        <img src="../static/images/engagement/4.jpg" alt="Engagement Shoot 4">
-    </section>
+  <section class="page-section">
+    <div>
+      <div class="container">
+        <h1 class="section-title">Engagement Shoots</h1>
+        <p class="section-description">
+          Celebrate the beginning of your forever with breathtaking portraits.
+        </p>
 
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <div class="gallery-item">
+                  <a href="../../templates/gallery/engagement1.html" data-lightbox="engagement-gallery" data-title="Engagement 1">
+                    <img src="../../static/Images/wedding/engagement1.jpg" alt="Engagement 1">
+                    <div class="overlay"><h3>Engagement 1</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../templates/gallery/engagement2.html" data-lightbox="engagement-gallery" data-title="Engagement 2">
+                    <img src="../../static/Images/wedding/engagement2.jpg" alt="Engagement 2">
+                    <div class="overlay"><h3>Engagement 2</h3></div>
+                  </a>
+                </div>
+              </td>
+
+              <td>
+                <div class="gallery-item">
+                  <a href="../../templates/gallery/engagement3.html" data-lightbox="engagement-gallery" data-title="Engagement 3">
+                    <img src="../../static/Images/wedding/engagement3.jpg" alt="Engagement 3">
+                    <div class="overlay"><h3>Engagement 3</h3></div>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </section>
+
+  {% include 'footer.html' %}
 </body>
+
 </html>
+
 
