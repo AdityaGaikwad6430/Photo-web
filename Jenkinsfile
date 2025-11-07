@@ -4,29 +4,36 @@ pipeline {
     agent any
 
     stages {
-        stage("Clean workshop") {
+        stage('Clean workshop') {
             steps {
                 script {
                     cleanWs()
                 }
             }
         }
-        stage("Code") {
+        stage('Code') {
             steps {
                 script {
-                    clone("https://github.com/AdityaGaikwad6430/Photo-web.git", "main")
+                    clone('https://github.com/AdityaGaikwad6430/Photo-web.git', 'main')
                 }
             }
         }
 
-        stage("Build") {
+        stage('Build') {
             steps {
                 script {
-                    build2("photo-app", "latest")
+                    docker_build('photo-app', 'latest')
                 }
             }
         }
-        stage("Deploy") {
+        stage('push') {
+            steps {
+                script {
+                    dpush('photo-app', 'latest')
+                }
+            }
+        }
+        stage('Deploy') {
             steps {
                 script {
                     deploy2()
@@ -35,9 +42,3 @@ pipeline {
         }
     }
 }
-
-
-
-
-
-
