@@ -29,7 +29,7 @@ pipeline {
         stage('push') {
             steps {
                 script {
-                    dpush('photo-app', 'latest')
+                    dpush('photo-app', 'latest', "$(dockerHubCreds)")
                 }
             }
         }
@@ -42,4 +42,5 @@ pipeline {
         }
     }
 }
+
 
