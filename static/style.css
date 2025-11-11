@@ -192,8 +192,7 @@ body {
 
 .gallery-item img {
   width: auto;
-  max-width: 400px;
-  max-height: 420px;
+  max-height: 420;
   height: auto;
   object-fit: cover; 
   object-position: top center; 
