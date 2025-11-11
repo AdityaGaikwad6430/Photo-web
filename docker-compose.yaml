@@ -20,8 +20,8 @@ services:
       timeout: 5s
 
   web:
-    image: photo-app:latest
-    container_name: flask_app
+    image: adityagaikwad6430/photo-app:latest
+    container_name: photo_app
     depends_on:
       db:
         condition: service_healthy
