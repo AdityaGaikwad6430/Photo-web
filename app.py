@@ -158,16 +158,17 @@ def wedding_prewedding():
     return render_template('wedding/pre-wedding.html')
 
 @app.route('/wedding/pre-wedding/pre-wedding1')
-def wedding_prewedding():
+def wedding_prewedding1():
     return render_template('wedding/pre-wedding/pre-wedding1.html')
 
 @app.route('/wedding/pre-wedding/pre-wedding2')
-def wedding_prewedding():
+def wedding_prewedding2():
     return render_template('wedding/pre-wedding/pre-wedding2.html')
 
 @app.route('/wedding/pre-wedding/pre-wedding3')
-def wedding_prewedding():
+def wedding_prewedding3():
     return render_template('wedding/pre-wedding/pre-wedding3.html')
+
 
 @app.route('/wedding/engagement')
 def wedding_engagement():
