@@ -21,7 +21,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker_build('photo-app', 'latest')
+                    dockerbuild('photo-app', 'latest')
                 }
             }
         }
@@ -41,3 +41,6 @@ pipeline {
         }
     }
 }
+
+
+
