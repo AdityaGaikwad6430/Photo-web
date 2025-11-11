@@ -157,15 +157,15 @@ def packages_page():
 def wedding_prewedding():
     return render_template('wedding/pre-wedding.html')
 
-@app.route('/wedding/pre-wedding1')
+@app.route('/wedding/pre-wedding/pre-wedding1')
 def wedding_prewedding():
     return render_template('wedding/pre-wedding/pre-wedding1.html')
 
-@app.route('/wedding/pre-wedding2')
+@app.route('/wedding/pre-wedding/pre-wedding2')
 def wedding_prewedding():
     return render_template('wedding/pre-wedding/pre-wedding2.html')
 
-@app.route('/wedding/pre-wedding3')
+@app.route('/wedding/pre-wedding/pre-wedding3')
 def wedding_prewedding():
     return render_template('wedding/pre-wedding/pre-wedding3.html')
 
