@@ -188,6 +188,13 @@ body {
   justify-content: center;
 }
 
+.present-item{
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
 /* Each gallery card */
 .gallery-item {
   position: relative;
