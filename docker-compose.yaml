@@ -21,7 +21,7 @@ services:
 
   web:
     image: adityagaikwad6430/photo-app:latest
-    container_name: photo_app
+    container_name: web
     depends_on:
       db:
         condition: service_healthy
