@@ -31,7 +31,7 @@ body {
 .site-header {
   height: 80px;
   background: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgb(0 0 0 / 8%);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -49,7 +49,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 0;
+  padding: 0px;
 }
 
 .main-nav a {
@@ -67,18 +67,22 @@ body {
 
 .btn.schedule {
   background: var(--accent);
-  color: #fff;
-  padding: 20px 36px;
-  border-radius: 6px;
+  color: #ffffff;
+  border:2px solid var(--accent);
+  font-size: 20px;
+  padding: 25px 36px;
+  border-radius: 2px;
   text-decoration: none;
   font-weight: 700;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s cubic-bezier(0.4, 0, 1, 1), box-shadow 0.3s ease;
+  border: 1px solid var(--accent)
 }
 
 .btn.schedule:hover {
-  background: #ff00aa87;
-  box-shadow: 0 0 15px 8px rgba(214, 2, 154, 0.776);
+  background: #E91E63;
+  box-shadow: 0 0 15px 8px rgb(187 187 187);
   transform: scale(1.05);
+  transition:linear(0 0%, 0.23 42.66%, 0.58 71.76%);
 }
 
 /* Hero */
