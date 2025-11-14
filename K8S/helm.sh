@@ -2,10 +2,11 @@
 set -e
 
 echo "[INFO] Downloading Helm installation script..."
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-4
 
 echo "[INFO] Making script executable..."
-chmod +x get_helm.sh
+chmod 700 get_helm.sh
+
 
 echo "[INFO] Installing the latest Helm version..."
 ./get_helm.sh
