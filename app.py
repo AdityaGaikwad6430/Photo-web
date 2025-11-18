@@ -125,7 +125,12 @@ def schedule_email():
     preferred_date = request.form.get("preferred_date")
     notes = request.form.get("notes")
 
-    message = f"""Subject: New Shoot Request
+    EMAIL_USER = os.getenv("EMAIL_USER")
+    EMAIL_PASS = os.getenv("EMAIL_PASS")
+
+    message = f"""From: {EMAIL_USER}
+To: {EMAIL_USER}
+Subject: New Shoot Request
 
 Client: {client_name}
 Email: {email}
@@ -133,18 +138,16 @@ Preferred Date: {preferred_date}
 Notes: {notes}
 """
 
-    EMAIL_USER = os.getenv("EMAIL_USER")
-    EMAIL_PASS = os.getenv("EMAIL_PASS")
-
     try:
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
             smtp.starttls()
             smtp.login(EMAIL_USER, EMAIL_PASS)
-            smtp.sendmail(EMAIL_USER, EMAIL_USER, message)
+            smtp.sendmail(EMAIL_USER, [EMAIL_USER], message)
         return "Request sent via Email!"
     except Exception as e:
         app.logger.error(f"Email send failed: {e}")
         return "Error sending email. Please try again later."
+
 
 # ---------- SUBPAGE ROUTES ----------
 # Packages

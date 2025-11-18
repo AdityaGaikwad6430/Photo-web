@@ -23,19 +23,43 @@
             <p><strong>Phone:</strong> +91 7083700900</p>
             <p><strong>Email:</strong> yg7083700@gmail.com</p>
             <a href="https://www.instagram.com/yashgaikwad_photography/"></a>
-             <a href="https://wa.me/917083700900" target="_blank"></a>
+            <a href="https://wa.me/917083700900" target="_blank"></a>
 
         </div>
+        <div>
+            <form class="schedule-form" action="/schedule/email" method="POST">
 
-        <div class="contact-form">
-            <h2>Send a Message</h2>
-            <form action="#" method="post">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
+                <div>
+                    <h3>Schedule a Shoot</h3>
+                </div>
+
+                <div>
+                    <label for="client_name">Client Name</label>
+                    <input type="text" id="client_name" name="client_name" required>
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div>
+                    <label for="preferred_date">Preferred Date</label>
+                    <input type="date" id="preferred_date" name="preferred_date" required>
+                </div>
+
+                <div>
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" rows="4"></textarea>
+                </div>
+
+                <div>
+                    <button type="submit" class="submit-btn">Send Request</button>
+                </div>
+
             </form>
         </div>
+
     </section>
 
     {% include 'footer.html' %}
