@@ -6,6 +6,6 @@ metadata:
 data:
   FLASK_APP: "app.py"
   FLASK_DEBUG: "0"
-  DB_HOST: "db"
+  DB_HOST: "mysql"
   DB_NAME: "photo_portfolio"
   DB_PORT: "3306"
