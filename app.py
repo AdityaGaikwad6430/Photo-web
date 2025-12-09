@@ -173,7 +173,7 @@ def wedding_prewedding3():
     return render_template('wedding/pre-wedding/pre-wedding3.html')
 
 @app.route('/wedding/post-wedding/')
-def wedding_prewedding3():
+def wedding_postwedding():
     return render_template('wedding/post-wedding.html')
 
 @app.route('/wedding/video-shoot')
