@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Us</title>
+    <title>Yash Gaikwad Photography</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-     {% include 'header.html' %}
-        <form class="schedule-form" action="/schedule/email" method="POST">
+    {% include 'header.html' %}
+    <form class="schedule-form" action="/schedule/email" method="POST">
 
-      <div>
-        <h3>Schedule a Shoot</h3>
-      </div>
+        <div>
+            <h3>Schedule a Shoot</h3>
+        </div>
 
-      <div>
-        <label for="client_name">Client Name</label>
-        <input type="text" id="client_name" name="client_name" required>
-      </div>
+        <div>
+            <label for="client_name">Client Name</label>
+            <input type="text" id="client_name" name="client_name" required>
+        </div>
 
-      <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
 
-      <div>
-        <label for="preferred_date">Preferred Date</label>
-        <input type="date" id="preferred_date" name="preferred_date" required>
-      </div>
+        <div>
+            <label for="preferred_date">Preferred Date</label>
+            <input type="date" id="preferred_date" name="preferred_date" required>
+        </div>
 
-      <div>
-        <label for="notes">Notes</label>
-        <textarea id="notes" name="notes" rows="4"></textarea>
-      </div>
+        <div>
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+        </div>
 
-      <div>
-        <button type="submit" class="submit-btn">Send Request</button>
-      </div>
+        <div>
+            <button type="submit" class="submit-btn">Send Request</button>
+        </div>
 
     </form>
     {% include 'footer.html' %}
 </body>
+
 </html>
