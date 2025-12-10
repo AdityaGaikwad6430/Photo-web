@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  mysql:
+  db:
     image: mysql:8.0
     container_name: mysql_db
     restart: always
@@ -23,7 +23,7 @@ services:
     image: adityagaikwad6430/photo-app:latest
     container_name: photo-app
     depends_on:
-      mysql:
+      db:
         condition: service_healthy
     ports:
       - "80:5000"
