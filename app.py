@@ -104,56 +104,52 @@ def contact_submit():
     return redirect(url_for("index"))
 
 @app.route("/schedule", methods=["POST"])
-def schedule():
-    client_name = request.form.get("client_name", "").strip()
-    email = request.form.get("email", "").strip()
-    preferred_date = request.form.get("preferred_date", "").strip()
-    notes = request.form.get("notes", "").strip()
-    if not (client_name and email):
-        flash("Please provide name and email to schedule.", "danger")
-        return redirect(url_for("index"))
-    req = ScheduleRequest(client_name=client_name, email=email, preferred_date=preferred_date, notes=notes)
-    db.session.add(req)
-    db.session.commit()
-    flash("Schedule request sent. I will confirm ASAP.", "success")
-    return redirect(url_for("index"))
-
-@app.route("/schedule/email", methods=["POST"])
 def schedule_email():
     client_name = request.form.get("client_name")
     email = request.form.get("email")
     preferred_date = request.form.get("preferred_date")
     notes = request.form.get("notes")
 
+    if not client_name or not email:
+        flash("Please enter your name and email.", "danger")
+        return redirect(url_for("index"))
+
     EMAIL_USER = os.getenv("EMAIL_USER")
     EMAIL_PASS = os.getenv("EMAIL_PASS")
 
-    message = f"""From: {EMAIL_USER}
-To: {EMAIL_USER}
-Subject: New Shoot Request
+    if not EMAIL_USER or not EMAIL_PASS:
+        return "Email credentials not found. Set EMAIL_USER and EMAIL_PASS in .env"
 
-Client: {client_name}
-Email: {email}
+    message = f"""Subject: New Photography Shoot Request
+From: {EMAIL_USER}
+To: {EMAIL_USER}
+
+Client Name: {client_name}
+Client Email: {email}
 Preferred Date: {preferred_date}
 Notes: {notes}
 """
 
     try:
-        with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
+        with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
             smtp.starttls()
             smtp.login(EMAIL_USER, EMAIL_PASS)
-            smtp.sendmail(EMAIL_USER, [EMAIL_USER], message)
-        return "Request sent via Email!"
+            smtp.sendmail(EMAIL_USER, EMAIL_USER, message)
+
+        flash("Shoot request sent successfully!", "success")
+        return redirect(url_for("index"))
+
     except Exception as e:
-        app.logger.error(f"Email send failed: {e}")
-        return "Error sending email. Please try again later."
-
-
+        return f"Error sending email: {e}"
 # ---------- SUBPAGE ROUTES ----------
 # Packages
 @app.route('/packages')
 def packages_page():
     return render_template('/packages.html')
+
+@app.route('/book')
+def book():
+    return render_template('/book.html')
 
 # Weddings
 @app.route('/wedding/pre-wedding')
