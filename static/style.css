@@ -96,7 +96,7 @@ body {
 
 .hero-left {
   position: relative;
-  width: 45%;
+  width: 400px;
 }
 
 .profile-photo {
@@ -106,12 +106,13 @@ body {
   display: block;
   object-fit: cover;
   filter: grayscale(0.1);
-  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border-radius: 5%  27% ;
 }
 
 .profile-photo:hover {
   filter: grayscale(0);
-  transform: scale(1.03);
 }
 
 .tag {
@@ -124,9 +125,16 @@ body {
   line-height: 1;
 }
 
-/* Right column */
+/* column */
 .hero-right {
   width: 55%;
+}
+
+.hero-left {
+  width: 40%;
+}
+.profile-photo{
+
 }
 
 .greet {
@@ -138,7 +146,7 @@ body {
 .name {
   font-size: 72px;
   margin: 6px 0 18px;
-  color: var(--accent);
+  color: #ff6262;
   letter-spacing: -1px;
   transition: var(--transition);
 }
